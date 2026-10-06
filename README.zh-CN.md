@@ -2,6 +2,10 @@
 
 基于 DiPlay-Legacy-Android v0.2.7 的实验性旧安卓车机适配版。最低 Android 4.2（API17），画质按实际投屏区域调整，最高请求 H.264／30帧。
 
+## 致谢
+
+特别感谢 [programmerguohuajing](https://github.com/programmerguohuajing) 开源并分享 [DiPlay-Legacy-Android](https://github.com/programmerguohuajing/DiPlay-Legacy-Android)。本项目基于其 v0.2.7 版本进行独立修改与适配，以支持较旧的 Android 车机。上游署名及许可证信息见[第三方声明](docs/THIRD_PARTY_NOTICES.md)。
+
 **版本：**`0.2.7-universal.1`（版本号107）。本仓库包含完整源码、GPLv3许可证、第三方声明、安装与构建说明、GitHub问题模板及自动检查工作流。APK 作为单独的 [GitHub Release 附件](https://github.com/NineThree/HeadUnitWireless-CarPlay/releases/tag/0.2.7-universal.1) 发布，不进入 Git 源码历史。APK 含有可提取的实验性配件认证材料，详见 `docs/THIRD_PARTY_NOTICES.md`。
 
 ## 功能与限制
