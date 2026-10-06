@@ -1,5 +1,7 @@
 # Universal edition 0.2.7-universal.1
 
+Special thanks to [programmerguohuajing](https://github.com/programmerguohuajing) for open-sourcing [DiPlay-Legacy-Android](https://github.com/programmerguohuajing/DiPlay-Legacy-Android). This release is an independent adaptation of its v0.2.7 project for older Android head units.
+
 - Minimum Android 4.2 (API 17), version code 107.
 - APK: `HeadUnitWireless-CarPlay-0.2.7-universal.1.apk`
 - APK SHA-256: `9c7b484fefeaf7aa0d38643758fc0ce0029c2fbdba3705f72c328bb553db8ddd`
