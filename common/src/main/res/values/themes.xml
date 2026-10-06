@@ -1,0 +1,7 @@
+<resources>
+    <style name="Theme.Xcertplay" parent="android:style/Theme.Holo.NoActionBar">
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowBackground">#0C111B</item>
+        <item name="android:windowActionModeOverlay">true</item>
+    </style>
+</resources>

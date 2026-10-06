@@ -1,0 +1,5 @@
+<resources>
+    <bool name="config_advanced_audio_channel_mapping">false</bool>
+    <bool name="config_universal_headunit">false</bool>
+    <string name="wireless_app_name" translatable="false">Golf 无线 CarPlay</string>
+</resources>

@@ -1,0 +1,4 @@
+<resources>
+    <bool name="config_universal_headunit">true</bool>
+    <string name="wireless_app_name" translatable="false">车机无线 CarPlay</string>
+</resources>

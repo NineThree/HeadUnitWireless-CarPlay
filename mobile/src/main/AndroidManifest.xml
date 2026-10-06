@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application android:name="androidx.multidex.MultiDexApplication" android:allowBackup="false" android:fullBackupContent="@xml/backup_rules" android:dataExtractionRules="@xml/data_extraction_rules" android:icon="@drawable/ic_carplay" android:label="@string/wireless_app_name" android:localeConfig="@xml/locales_config" android:roundIcon="@drawable/ic_carplay" android:supportsRtl="true" android:theme="@style/Theme.Xcertplay">
+
+        </application>
+
+</manifest>

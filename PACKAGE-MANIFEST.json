@@ -1,0 +1,1932 @@
+{
+  "project": "HeadUnitWireless-CarPlay",
+  "release": "0.2.7-universal.1",
+  "project_source_files": 384,
+  "apk": {
+    "path": "release-assets/HeadUnitWireless-CarPlay-0.2.7-universal.1.apk",
+    "bytes": 6986865,
+    "sha256": "9c7b484fefeaf7aa0d38643758fc0ce0029c2fbdba3705f72c328bb553db8ddd"
+  },
+  "payload_files_excluding_this_manifest": [
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug.yml",
+      "bytes": 1589,
+      "sha256": "82393d906c5db8a265063fd56db0a50aaaff452e422baf985c8f88a942b64c87"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "bytes": 28,
+      "sha256": "1f103c6a9dd07cd13a9a6f17ace6b813f47747eb9cb7e00488cb2073caaf91bb"
+    },
+    {
+      "path": ".github/workflows/android.yml",
+      "bytes": 480,
+      "sha256": "3fd80368ba04c017194e83e7f62e24e9cc74e88bff568305eb27824d1ec961d4"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 517,
+      "sha256": "f4a9f6397ed505dee514b515ebc5107eedba57cf9825ebfee75c958399168154"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 6380,
+      "sha256": "e5757f8f6fc41b33ccf7d2c7230182326fbd90e9f44665dee81e7e7091d9f172"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 943,
+      "sha256": "0ebd135806e2c84611121e46f4e4fe4c8d1a1a746dc47d61802e43d721a6c93d"
+    },
+    {
+      "path": "GITHUB发布准备.md",
+      "bytes": 1813,
+      "sha256": "9705745bf4e697df781bb0c582e3e72a72b78fd2ad5a8d68dbd1cf31449d4ebe"
+    },
+    {
+      "path": "GitHub-Release-0.2.7-universal.1.en.md",
+      "bytes": 1179,
+      "sha256": "854e4bb0ac254c5809a1fb1a4605ba58c69cdfb55bbecf595b1b7b986aa2204b"
+    },
+    {
+      "path": "GitHub-Release-0.2.7-universal.1.zh-CN.md",
+      "bytes": 1043,
+      "sha256": "2a46065da028ead3fddf6560643cba7cbd71bdd53b49434d6d2167ab59244b3b"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3262,
+      "sha256": "c94a5007f227ad3b369e130df09d5d30131f559652579f6d283675867d9b4d5b"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "bytes": 2687,
+      "sha256": "5812d7df55786b58fa13bef4f88c3f718478564875fd264ace8f49740afc0921"
+    },
+    {
+      "path": "SECURITY.md",
+      "bytes": 1196,
+      "sha256": "2a27aacd66f4985a4730708a2cfcd82b98ecbeab7de59878296a752c088cab28"
+    },
+    {
+      "path": "asset/xcertplay.png",
+      "bytes": 2685656,
+      "sha256": "863b03148ea32e7937caa566a844b170277aa725d629747afed3815d8cdf6361"
+    },
+    {
+      "path": "asset/xcertplay_small.png",
+      "bytes": 267552,
+      "sha256": "8805e4ca1b588d0f7dcbf46617786b36f7bc4c47d40cc78cf3ccdc7f378df184"
+    },
+    {
+      "path": "automotive/.gitignore",
+      "bytes": 6,
+      "sha256": "5c3174b74edc6f2b9e0743594b8bd3c7f31e4f4405758cc9872b3fe1de1d28b4"
+    },
+    {
+      "path": "automotive/build.gradle.kts",
+      "bytes": 1471,
+      "sha256": "8de422ecba6c72e8a365e936a642f6bb549a2e91e6d8a215f7b288ebb5bfdaa7"
+    },
+    {
+      "path": "automotive/src/main/AndroidManifest.xml",
+      "bytes": 1662,
+      "sha256": "56763b781cff4ce75ae31644729a692c16db7be11adf5e8ffe0fbac92585fa7f"
+    },
+    {
+      "path": "automotive/src/main/java/com/shilapi/xcertplay/shared/MyCarAppScreen.kt",
+      "bytes": 587,
+      "sha256": "110a89a6dc9614037e46e4e5d97df38d6bcf579154680681ed9902dc0012c4d7"
+    },
+    {
+      "path": "automotive/src/main/java/com/shilapi/xcertplay/shared/MyCarAppService.kt",
+      "bytes": 363,
+      "sha256": "bd6849fd70abb87de2115768b9d6ac5b065127f325976780100112af6339ca11"
+    },
+    {
+      "path": "automotive/src/main/java/com/shilapi/xcertplay/shared/MyCarAppSession.kt",
+      "bytes": 255,
+      "sha256": "6f78449a09b6705fcd8e0b3b13d632173190fc1faa3b3e069feeb046e93a455f"
+    },
+    {
+      "path": "automotive/src/main/keepRules/rules.keep",
+      "bytes": 418,
+      "sha256": "cd9f36ade2d8604e1b7cf24eff5b171f9c0816c0aa013ba7eb55be4fe2e1dac7"
+    },
+    {
+      "path": "automotive/src/main/res/values/config.xml",
+      "bytes": 92,
+      "sha256": "7bd7cf82017df67b0f218c6df21bd6419120150d053a9c0e9ad0bcfafd181398"
+    },
+    {
+      "path": "build.gradle.kts",
+      "bytes": 168,
+      "sha256": "e43ae765ce974092dd1b5c1a772b525cf537c86aba700ed2a25f525c2dcf6ccc"
+    },
+    {
+      "path": "common/build.gradle.kts",
+      "bytes": 806,
+      "sha256": "a8fb340cedb38f60985f7c87448995f96cb22e40a53834d8df3d1c38d85c21ee"
+    },
+    {
+      "path": "common/src/main/AndroidManifest.xml",
+      "bytes": 2273,
+      "sha256": "339d9a21b0dfeba2cb43517a3a4cdcd74f9da005eaf79f5294149474e4d8bd2e"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/AirPlayPersistence.kt",
+      "bytes": 27775,
+      "sha256": "d8dfea7982f5aad4fbca615b3fbb409ed6c6ed2bf7304e555d274d2f1e10a37d"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/AppLocale.kt",
+      "bytes": 4713,
+      "sha256": "a609003b88251c4b6be773df6f1d3541473f9bffdfe538ea0735b879629f162b"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/CarPlayHostActivity.kt",
+      "bytes": 155714,
+      "sha256": "6fc8653e7d414a5ffd1b7b59fa11410b18deb45732d5239a02324677e79b2ff2"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/CarPlayMediaKeys.kt",
+      "bytes": 12439,
+      "sha256": "eb6fd3630c2a2e97255d7228466689ad3c997f4df61ebcb6a9d210028ac208ee"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/DarkMode.kt",
+      "bytes": 204,
+      "sha256": "d308363fb9f6c795bea24969b28949e76848eb868956e967601d88dd5a7a1ac4"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/DiPlayBluetooth.kt",
+      "bytes": 745,
+      "sha256": "90551cde945484e15bd71d85682fffb0af415fe09f6621dd205b7ad8bfeda91d"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/DiPlayBootstrap.kt",
+      "bytes": 3161,
+      "sha256": "f32ae13c1af70d53058924293cd495d3b5cb65a74922f1c6986be5350a7075e0"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/DiPlaySessionService.kt",
+      "bytes": 3206,
+      "sha256": "044db5fe78a083d2c16187888c6472de25bf10c07d83dfb67054fa93f08cd0a9"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/DiagnosticExportStore.kt",
+      "bytes": 1870,
+      "sha256": "a524dbe2a83ac93e159785284787c40becd454173a2ddccb3482e7cd4b2d0802"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/DiagnosticRedactor.kt",
+      "bytes": 1192,
+      "sha256": "71f23a88a78a43c0d0bde040b4ad691b6776e8d030e1e1b054a1d53f4f4d453d"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/DisplayDiagnosticSnapshot.kt",
+      "bytes": 2712,
+      "sha256": "5b44e07d66a14820ff98d78ebe8b9eabf26a47ac15ffa56d437477227dde87e2"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/GolfAutoConnectionGate.kt",
+      "bytes": 836,
+      "sha256": "b456262a737cf0f805ca93991f2d82e8cb1d63dfbd71015c6853bebe626b0f9f"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/GolfBootReceiver.kt",
+      "bytes": 867,
+      "sha256": "e6117a7cb26166ee14334ef36a041c56da4dbdbf740f5eaf8c0c594131fce664"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/GolfDisplaySettings.kt",
+      "bytes": 2092,
+      "sha256": "095a9a18f9016d18fe64fd7c97f584ab8a424989b9240efaae0948c27a0d58cc"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/GolfFeatureSettings.kt",
+      "bytes": 955,
+      "sha256": "2338c7c7cb1e8502c173769decf210a10832ce54d32ac9037f14fa955ab68e1f"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/GolfHardwareKeyDispatcher.kt",
+      "bytes": 4075,
+      "sha256": "9c6164b6c3ba1114e9a945c113b41591f6526b1bf2a93243b09bbf7970bf1986"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/GolfHardwareKeyLog.kt",
+      "bytes": 829,
+      "sha256": "81a2bca92cd30ed679b5a197cff80cf4ca609046ea2a7f264efb0bceae7d793b"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/GolfKeyBindings.kt",
+      "bytes": 3106,
+      "sha256": "d7b71f682ea9fa68a45a560c0b8bb868bb1af382d72ac64da6fde3f27628cc96"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/GolfWirelessActivity.kt",
+      "bytes": 31049,
+      "sha256": "ebe53c36912d76f37371149cb9db277595c1b47ddd51c3dfd0d20ddca1dea7d5"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/GolfWirelessProfile.kt",
+      "bytes": 1761,
+      "sha256": "269e709a49ca2a4f9ee83cd1b63d68b44ff76e389e5abb61d75f086dab2b3bcc"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/HeadUnitEdition.kt",
+      "bytes": 920,
+      "sha256": "8ca289f41849717b584793dd3a155e425128eb130fbacf12f53a839ebefefd76"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/ImageCropActivity.kt",
+      "bytes": 15298,
+      "sha256": "0d124a03fae55cbcccfce43923c0ddafe66e234803ab8862a9c0f88bde920dfd"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/InputDiagnosticSnapshot.kt",
+      "bytes": 1240,
+      "sha256": "33e6e89f4a4939189b9393af79c2a04d9f7e9d9e8417aae9ebfdd4d4161f486c"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/LegacyFullscreen.kt",
+      "bytes": 1491,
+      "sha256": "ea463ef8c864bb99dc22e7b9be6a7d9f98f68556d85667d288ee43791dc43042"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/SafeAreaEditorView.kt",
+      "bytes": 7067,
+      "sha256": "e416134e3e0ed4d7938db967530e78ecf172d308b754070d7d4d8ff60a9a2531"
+    },
+    {
+      "path": "common/src/main/java/com/shilapi/xcertplay/SessionLogFile.kt",
+      "bytes": 1687,
+      "sha256": "79ab68923f28460d9e1d610355544d1f34036bd199710aad2392ac522fae67c1"
+    },
+    {
+      "path": "common/src/main/res/drawable/ic_carplay.png",
+      "bytes": 35437,
+      "sha256": "43163249a2d80780e580404bbff177a76aad160d07650c62d77ea32dfeb127b0"
+    },
+    {
+      "path": "common/src/main/res/drawable/ic_diplay_notification.xml",
+      "bytes": 350,
+      "sha256": "29ddf6dd7937503a9d3cab8afe592f5f8d5d833b1e1f7bc3641a63543f2e976b"
+    },
+    {
+      "path": "common/src/main/res/drawable/ic_dp_about.xml",
+      "bytes": 357,
+      "sha256": "44dfc25cdcb6faaa33c5c536405a4929da003c535726b0eee2462fb0a5b93695"
+    },
+    {
+      "path": "common/src/main/res/drawable/ic_dp_automation.xml",
+      "bytes": 298,
+      "sha256": "feabe796122c6eba73c92ed4f58f3159df1267d42542d73cfda40324029c9ab4"
+    },
+    {
+      "path": "common/src/main/res/drawable/ic_dp_connection.xml",
+      "bytes": 483,
+      "sha256": "2b4e23bdc4e3a7a86bde0f364892206811120ebb466b303e1aaf127f2ecf372d"
+    },
+    {
+      "path": "common/src/main/res/drawable/ic_dp_diagnostics.xml",
+      "bytes": 399,
+      "sha256": "facc2d972d62dc04fa380dd942807696350a98aaa88090495b73bbe77f97cc44"
+    },
+    {
+      "path": "common/src/main/res/drawable/ic_dp_display.xml",
+      "bytes": 413,
+      "sha256": "fc23a00c498972b86b2e3a025fbb6c5686c937fc6c7058cdf9f53e9a9fc466b8"
+    },
+    {
+      "path": "common/src/main/res/drawable/ic_dp_navigation.xml",
+      "bytes": 259,
+      "sha256": "9edb8f49a0f6f220813d3a0ef203ee6ae8cb020b5c6ae35c396d4db19041a27c"
+    },
+    {
+      "path": "common/src/main/res/drawable/ic_dp_permissions.xml",
+      "bytes": 367,
+      "sha256": "5efb75a168e9046fb27133f649893369b58a78371c3d98fe730ff7c45f906b77"
+    },
+    {
+      "path": "common/src/main/res/raw/ic_car_home.png",
+      "bytes": 5121,
+      "sha256": "117cb9a1aa4ad218094387287decdbebdbae1649a1426c0d36341e0549216f07"
+    },
+    {
+      "path": "common/src/main/res/raw/placeholder_icon.png",
+      "bytes": 33432,
+      "sha256": "8efa49ddcbb356e5269c971d3ec550e9bdceb914527a766809ba570b80b5896e"
+    },
+    {
+      "path": "common/src/main/res/values/config.xml",
+      "bytes": 236,
+      "sha256": "c7e92f1f5aa7f0903c8c3841bbf98af5d38affc5a9e9fca19f55c8f060b0fc0c"
+    },
+    {
+      "path": "common/src/main/res/values/strings.xml",
+      "bytes": 35773,
+      "sha256": "e498d523a25d1bad55f99d5a541e416423eca0e7de3248c79b7572e77b11c898"
+    },
+    {
+      "path": "common/src/main/res/values/themes.xml",
+      "bytes": 297,
+      "sha256": "5ad6bdfd13c36ee56b9aaba2c3966262a88a21d3b8d614131e3a4eb968ce634e"
+    },
+    {
+      "path": "common/src/main/res/values-ar/strings.xml",
+      "bytes": 42693,
+      "sha256": "b15f9315128c7b09af23e47124ac91c5872d2820e6c0e4e7ca3f08b58bc155d5"
+    },
+    {
+      "path": "common/src/main/res/values-es/strings.xml",
+      "bytes": 38391,
+      "sha256": "71e9ad3d4b85b97cf14284c59a2f57214aba9a4481969f9ac4daaca2a076c5f8"
+    },
+    {
+      "path": "common/src/main/res/values-ru/strings.xml",
+      "bytes": 49183,
+      "sha256": "60a05e74025ee5a0dd8a6be6b589a3a2fe73f1949cf7475877e91f9ea6a5ec67"
+    },
+    {
+      "path": "common/src/main/res/values-v21/themes.xml",
+      "bytes": 479,
+      "sha256": "dee1b504ec3f57b50383792cb284c79ebb2d0562a6d41fc9a416590c2e56340c"
+    },
+    {
+      "path": "common/src/main/res/values-zh-rCN/strings.xml",
+      "bytes": 34744,
+      "sha256": "7e5766a839fb4fed3f019429e12b8c7a9d695ab3e82e623c4702817cb71f0194"
+    },
+    {
+      "path": "common/src/main/res/xml/backup_rules.xml",
+      "bytes": 523,
+      "sha256": "80be325e44eb49bec54794399e7de6b4d274513a3ebce30584889d06372f1a0a"
+    },
+    {
+      "path": "common/src/main/res/xml/data_extraction_rules.xml",
+      "bytes": 1050,
+      "sha256": "cb029b35db0e976c087100424e16e14a6256b46962398887520e51508c3b5842"
+    },
+    {
+      "path": "common/src/main/res/xml/locales_config.xml",
+      "bytes": 299,
+      "sha256": "c097db754cf07c4eb2bc6c2712934e0e32cdaa167572d674b56d0fc74ef73c9b"
+    },
+    {
+      "path": "common/src/main/res/xml/usb_device_filter.xml",
+      "bytes": 169,
+      "sha256": "fd2aeda55d46f3430b506d586e3774068bee96affdfb165030504aa54f51a896"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/AppLocaleTest.kt",
+      "bytes": 2825,
+      "sha256": "75500abffc0f94971a72a17fdb84e6b7e65e95ca231ba2f1db2456e422b38417"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/CarPlayMediaCallbackTest.kt",
+      "bytes": 1748,
+      "sha256": "0f9a8bf3c37f8a17a81a4acfef8458d52e4617e38515e0b8d2797b10c401d7e2"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/DarkModeTest.kt",
+      "bytes": 561,
+      "sha256": "56aba327f646c10bad0fad81c3794757d372a80969db55d71be7ab104e5ac6fb"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/DiagnosticExportStoreTest.kt",
+      "bytes": 5247,
+      "sha256": "dbf67020754747d874ba80b328104464c5a7d5ae1dff96d7c0a26c694235b60d"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/DiagnosticRedactorTest.kt",
+      "bytes": 4547,
+      "sha256": "abdd2b90334c76966368f6f6551e44ad81b5f3b70112efd3a8f170ebf48b62a9"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/DisplayDiagnosticSnapshotTest.kt",
+      "bytes": 3515,
+      "sha256": "dbb0d40bb6e219bd27534a63a4e3ff36ead5a1010f22cd03409ae0d959a53bef"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/GolfDisplayDialogTest.kt",
+      "bytes": 3138,
+      "sha256": "392a5b978db45283e900c58e0d966534cb12ebed2b7908f5e715fa581148c0a4"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/GolfFeatureDialogTest.kt",
+      "bytes": 3782,
+      "sha256": "7a989114e63cce2d758370078884cefaa1485eb3757eac425384744071e0010d"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/GolfHardwareKeyDiagnosticTest.kt",
+      "bytes": 2158,
+      "sha256": "2b344d8723d91424f03425c7ad3af05c3407b6bbff0e21db7cf432241b7861e8"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/GolfHardwareKeysTest.kt",
+      "bytes": 15923,
+      "sha256": "efd2d6944c31b8ab69b47c98480b9abc8c14fd83edf217e550eff2fba0f425b0"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/GolfHostDisplayTest.kt",
+      "bytes": 4684,
+      "sha256": "6fa77f16ac19521a386c182601a8f1a003c1d61ee1dd81c7edd7dec13361162e"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/GolfKeyBindingsTest.kt",
+      "bytes": 3213,
+      "sha256": "142d057c2e4e1fc9254291f4e5bf47e95a5c15496925a61a007995da0661a2eb"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/GolfKeyLearningDialogTest.kt",
+      "bytes": 2466,
+      "sha256": "67f4d42f2697732ca87df7210cedcfdd50dc44fc326ffa5fd244e98150a2ee96"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/GolfMicrophonePermissionTest.kt",
+      "bytes": 2399,
+      "sha256": "348872b846dad2823f63e438b3983e3eac858e33800abf12042ed5e64bd02f57"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/GolfNativeDisplayTest.kt",
+      "bytes": 4684,
+      "sha256": "affb7739e46152f7a95847dc1ba67c6ed0472c76dade0436012ae095fe845666"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/GolfStartupTest.kt",
+      "bytes": 2704,
+      "sha256": "e67c153de6f42adeab5af48a93d682101cd14bb9461cef81ef57330043b8d8eb"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/GolfWirelessConnectionHintTest.kt",
+      "bytes": 980,
+      "sha256": "00a536e635627426cd662662888fe53bd9db5249f3f1d787febcd3af541ebe7f"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/GolfWirelessProfileTest.kt",
+      "bytes": 578,
+      "sha256": "56fbbf2eb020f6e4f530f75643839c90349b0692b96b1eab73026aa454496fb0"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/GolfWirelessSettingsTest.kt",
+      "bytes": 4842,
+      "sha256": "48a1f0fb6c651dc15601d8a4d1ea84ddd1dce0af851595fc67d98c4112b4037b"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/HotspotModeMigrationTest.kt",
+      "bytes": 2033,
+      "sha256": "bdf21a7abfdb7590490fa280aceb10b9c3f4bc72018fbc94c27fe14adb55d664"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/UniversalDisplayTest.kt",
+      "bytes": 2427,
+      "sha256": "50b2504cba538a5fc876ad448054cbdf7937dceaff8f243ba64b4e3f00dc1570"
+    },
+    {
+      "path": "common/src/test/java/com/shilapi/xcertplay/WirelessServiceOwnershipTest.kt",
+      "bytes": 1557,
+      "sha256": "8f7096f002918893e77774e509488574c955fd3e82910e0ef8fd089dff9e7cd6"
+    },
+    {
+      "path": "docs/BUILD.md",
+      "bytes": 3123,
+      "sha256": "cd7bbc64a756a3b84bd82c84a5c20dab40ac44bdb8f0ed7d06ca2026fa441dab"
+    },
+    {
+      "path": "docs/CONNECTION_FIX.md",
+      "bytes": 2720,
+      "sha256": "3948ee4a8b2f1ca5539b4a000cac5203143895524d62a6dbcaf4aac34467f272"
+    },
+    {
+      "path": "docs/DEVICE_EVIDENCE.md",
+      "bytes": 7455,
+      "sha256": "b29cb806ed727585c7cf34f44cf2f88e1770e793d7d79665d07b8dfe6035357e"
+    },
+    {
+      "path": "docs/DISPLAY_FIX.md",
+      "bytes": 3336,
+      "sha256": "eaa60dd41f05bc138ad9c01cb275203ebc009e274bea5b859f4d27d085f2736b"
+    },
+    {
+      "path": "docs/DISPLAY_IMPROVEMENT_PLAN.md",
+      "bytes": 3525,
+      "sha256": "c88dfc48c37bc308c70ae48b23f9cc0d43016dc10c78059d1d38d6f7db4108ff"
+    },
+    {
+      "path": "docs/GOLF_WIRELESS_PLAN.md",
+      "bytes": 2822,
+      "sha256": "10eae072e77019d3545bf291f781f9e3af75822a95f92a051cb8f8ad761eeec0"
+    },
+    {
+      "path": "docs/INSTALL.md",
+      "bytes": 788,
+      "sha256": "de6cefdadd09f690015ff013437175a54b4b3c73a55d0c7b252f0fb04c1686d3"
+    },
+    {
+      "path": "docs/NATIVE_DISPLAY_KEYS.md",
+      "bytes": 3765,
+      "sha256": "3d53383fcd7272eb6c89199439ff1fbdc8264e8246ad515d9f3284bf37b8ae7c"
+    },
+    {
+      "path": "docs/NATIVE_DISPLAY_KEYS_PLAN.md",
+      "bytes": 3394,
+      "sha256": "0689a5feba8ceb76ca697d47f9c3bb46d90774bcf857467fa2012891c83458c7"
+    },
+    {
+      "path": "docs/OPTIONAL_FEATURES.md",
+      "bytes": 4060,
+      "sha256": "88184f5a20501920ee94da73f70a663b3ee08660c1b9f0afe9e1a007d2cb160d"
+    },
+    {
+      "path": "docs/OPTIONAL_FEATURES_PLAN.md",
+      "bytes": 3920,
+      "sha256": "ebb680dd6e66450a82ee483acb1a0723ea11b7aedcd321e669a65b3808732073"
+    },
+    {
+      "path": "docs/RELIABILITY_PERFORMANCE.md",
+      "bytes": 5782,
+      "sha256": "7b8d411960fe73e7512a84e279308915242e012172abbd953b076d0cdcadb0a2"
+    },
+    {
+      "path": "docs/RELIABILITY_PERFORMANCE_PLAN.md",
+      "bytes": 4528,
+      "sha256": "826955d60bfcffbc352443cc914d71271dd7d1b81b2ff54539b1de2f38027a81"
+    },
+    {
+      "path": "docs/THIRD_PARTY_NOTICES.md",
+      "bytes": 2493,
+      "sha256": "518ca3068dddce8d8901b737d466f6e59cef0a688cc6a963886ba5b688da331b"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "bytes": 4329,
+      "sha256": "34ec2045d2d5aee942f6ce92a8b344f4f4ce5b0a1ebb350070b303bdd63cdac4"
+    },
+    {
+      "path": "docs/VIDEO_FIX.md",
+      "bytes": 3243,
+      "sha256": "8b902aef31f5d23a7323453cf09b7eb0bb1def2c124aebfe5ca278a69f9e8f82"
+    },
+    {
+      "path": "docs/assets/golf-car-home.svg",
+      "bytes": 666,
+      "sha256": "8336a657266dbad7c1e3b92bc6f2f5a53442c231ada9afdb7e01dfdd63092b57"
+    },
+    {
+      "path": "docs/licenses/DiAuto-AGPL-3.0.txt",
+      "bytes": 34520,
+      "sha256": "76a97c878c9c7a8321bb395c2b44d3fe2f8d81314d219b20138ed0e2dddd5182"
+    },
+    {
+      "path": "docs/licenses/dependencies/ASM-BSD-3-Clause.txt",
+      "bytes": 1651,
+      "sha256": "34b8dd2e1b4b5f822ba633602676297fa82328d9438ba4d7336ec7393d212e06"
+    },
+    {
+      "path": "docs/licenses/dependencies/Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "docs/licenses/dependencies/Bouncy-Castle-LICENSE.txt",
+      "bytes": 1116,
+      "sha256": "782703fcd39c06fcfba0e23d1cdc65c3f219d58b5a5ffa632a5b37008cfec956"
+    },
+    {
+      "path": "docs/licenses/dependencies/SLF4J-LICENSE.txt",
+      "bytes": 1132,
+      "sha256": "cac34505131988f93ff1b21aae610f01500f478dc2bfe7f055c442ff301fd61e"
+    },
+    {
+      "path": "gradle/gradle-daemon-jvm.properties",
+      "bytes": 1138,
+      "sha256": "6c13aa5ba36690ccfbbb25a8807d01d98c15833e446d7ae82ddc726472cb8ef7"
+    },
+    {
+      "path": "gradle/libs.versions.toml",
+      "bytes": 1286,
+      "sha256": "04db708104b853ec62321df34e336fe342cde136fdf657d8dd4681b902af7824"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.jar",
+      "bytes": 45457,
+      "sha256": "76805e32c009c0cf0dd5d206bddc9fb22ea42e84db904b764f3047de095493f3"
+    },
+    {
+      "path": "gradle/wrapper/gradle-wrapper.properties",
+      "bytes": 370,
+      "sha256": "bb18e8497bcba064ad5d3ae6afaff70fdd604ec607e692e011d242490d2b051c"
+    },
+    {
+      "path": "gradle.properties",
+      "bytes": 1120,
+      "sha256": "cf774135f23cd1e6c054168ce772e24140800347f95b29819744c96f97e4ef26"
+    },
+    {
+      "path": "gradlew",
+      "bytes": 8728,
+      "sha256": "3238afb2aed5cb16eb7d6718077e7138059108f007b54179e9cc157c5a6e0e89"
+    },
+    {
+      "path": "gradlew.bat",
+      "bytes": 2843,
+      "sha256": "94102713eb8fb22d032397924c0f38ab2da783ba60d07054339f1190a0c4e2cd"
+    },
+    {
+      "path": "legacy-mdns/LICENSE",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "legacy-mdns/README.md",
+      "bytes": 1386,
+      "sha256": "98b605f1f1d48f2ab9f057f4e6f4ee1ec79feda3b94e13d56490452bac70675b"
+    },
+    {
+      "path": "legacy-mdns/build.gradle.kts",
+      "bytes": 203,
+      "sha256": "060fbcad5812c1de4d65eeb93a186f2708265cdcc82a29b48f5c505447b5fbed"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/JmDNS.java",
+      "bytes": 19259,
+      "sha256": "61729b1778752d5541f2419874a8a2dcaa1a680ad357edb17cf80825dd301f65"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/JmmDNS.java",
+      "bytes": 17364,
+      "sha256": "e4190949ddcd7cc794e58c0007657d0c1257ea72a107408434f9599ad3267480"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/NetworkTopologyDiscovery.java",
+      "bytes": 5993,
+      "sha256": "51a9e127b633dc00d36b647147c43d2452c318560f04e075b92e3bd5552d40b1"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/NetworkTopologyEvent.java",
+      "bytes": 1607,
+      "sha256": "fe087565482ca4924c2deaf11e6bf1b9b47114f4033a188939ac599afc8aef07"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/NetworkTopologyListener.java",
+      "bytes": 1281,
+      "sha256": "105c9854026c29bef7325842e7626eb42187975b0bd959e91d598b88fa97ea23"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/ServiceEvent.java",
+      "bytes": 2264,
+      "sha256": "45ba6958fff8f444b771a43508ec86b2827ab044fb0adc734a24c5e092d738c2"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/ServiceInfo.java",
+      "bytes": 28111,
+      "sha256": "06d9f868e67fb29a5dc00df310d4b33a63a12cc95e12e1ebfba49daf47ce34e9"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/ServiceListener.java",
+      "bytes": 2229,
+      "sha256": "88cb0898b4252501a786fcd632aac4f1fea5fef8aee2ae966629cff30acef495"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/ServiceTypeListener.java",
+      "bytes": 1448,
+      "sha256": "e063015df87336b57bf205302c6cd6f69020bfa5566bf78b9be41e901cb2decf"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/DNSCache.java",
+      "bytes": 10500,
+      "sha256": "ff7ddd3f4b4042a6602eea79aabd5885acfe981d82df94103f97a6494e4c5911"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/DNSEntry.java",
+      "bytes": 11531,
+      "sha256": "22eb9c53dfb86abc049584a4363afffed5b6368c04bc9cfb41235b0b82ecd3a1"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/DNSIncoming.java",
+      "bytes": 28057,
+      "sha256": "676603cc912a7554da865e54a54b5f5989b479fb6c90d71ea6ec4f154652914e"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/DNSListener.java",
+      "bytes": 1115,
+      "sha256": "5b4ac484654b84167a6522b4a99a702d9fdf027636bda19dabdbe94db9172e92"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/DNSMessage.java",
+      "bytes": 8953,
+      "sha256": "d33a12ec5e2ac57a2dea5738f6bf08c4ed6f6f2c8b50b0283026a2b7576457ea"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/DNSOutgoing.java",
+      "bytes": 14787,
+      "sha256": "8e5b76ac11f479af30b10c92365361fe52dd29a633255e398d5d414a333fadac"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/DNSQuestion.java",
+      "bytes": 13785,
+      "sha256": "258617176826a0a295bb8a803c60dc46308c4b09de5b01bccd6e32430ff1f46c"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/DNSRecord.java",
+      "bytes": 38209,
+      "sha256": "ca0e832e1589dbf9badc4235fa790b2e991277e0e93321b240f79ad73072b3c4"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/DNSStatefulObject.java",
+      "bytes": 17247,
+      "sha256": "aa6e0859e69a28a7b9cb537362b43a7cf70d4a85914edc78c00888ec37ea3d77"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/DNSTaskStarter.java",
+      "bytes": 14580,
+      "sha256": "cc34d9f039b871a528e0469dc2fd28c95d651667253224d6ea4254bbd45ccfc6"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/HostInfo.java",
+      "bytes": 13969,
+      "sha256": "254d6539bc1dc82bf3f273db0e3f66e5d4dfadb8844ddb294d01a6fe63a7d8b0"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/JmDNSImpl.java",
+      "bytes": 86496,
+      "sha256": "e4a09364d9262145845aa56e3c87fc2ab825b87969d5673a27a9d174841fcbf2"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/JmmDNSImpl.java",
+      "bytes": 28944,
+      "sha256": "72bf65733794ce4c6f28003bcf7eb281693db8c34fdcd82742fdcc110a9105bf"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/ListenerStatus.java",
+      "bytes": 10820,
+      "sha256": "6836f038020622615c85f0463d21f1815196aa143134ffa8e130d70a554946ec"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/NameRegister.java",
+      "bytes": 9446,
+      "sha256": "84a0951d5faedaedcba40e799ead0a4f69e11b78eb0bc4c2100b124882b40698"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/NetworkTopologyDiscoveryImpl.java",
+      "bytes": 3421,
+      "sha256": "42c62a19e2cff67649dda057c591586674f0430e3cf668266045d5925a284103"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/NetworkTopologyEventImpl.java",
+      "bytes": 2588,
+      "sha256": "42938d30b5b43bdec1671cf9984066cf18d9a5b146aba241677e069e8a301362"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/ServiceEventImpl.java",
+      "bytes": 3290,
+      "sha256": "78b06853eb779fb6bb03db1bf06983bd160e17080e67953c9e9b9b089e516ce5"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/ServiceInfoImpl.java",
+      "bytes": 42236,
+      "sha256": "df584fcdb2a9411d781de9973043f8ead50c6673a1d3bb6ed0d1a975ce562830"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/ServiceTypeDecoder.java",
+      "bytes": 4044,
+      "sha256": "761559b1c561c6da5c0f2ad723d700ca9d20316cceb49db51342addf1c7450f2"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/SocketListener.java",
+      "bytes": 4332,
+      "sha256": "e9c8de2b8ded9a601bc2e8a5251bdde4b600fc71f0c7aa06ea500c10b12dca43"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/constants/DNSConstants.java",
+      "bytes": 4060,
+      "sha256": "abdc4ce9441fa60afa9231c4f8a6fb8b71f4ffc8a81fab5ee08441b284ec4995"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/constants/DNSLabel.java",
+      "bytes": 2349,
+      "sha256": "9ee31cd313bd6f5198dbc459f9139e05297fd504d8c02557220195b5050ca506"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/constants/DNSOperationCode.java",
+      "bytes": 2315,
+      "sha256": "3085025c14834cb01b0b490f035f968c8d911213299c35dd2cd37473c8a54456"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/constants/DNSOptionCode.java",
+      "bytes": 2147,
+      "sha256": "ecccd8d494c773c01d0b465fdc1a865699ed26a3652f6d6e14bfe0dfc94b5a1e"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/constants/DNSRecordClass.java",
+      "bytes": 3836,
+      "sha256": "d937c8044204e724f2499ee32edff18d2a08c314beba4be15294ade9a56dcd7a"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/constants/DNSRecordType.java",
+      "bytes": 6737,
+      "sha256": "2445ad3a6f3623489d5685b8922abc4630509520527800464a3ffcea371b8113"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/constants/DNSResultCode.java",
+      "bytes": 4599,
+      "sha256": "a6049aee4bb52ce717805cd3b5978b7abdf643c477b318a1f1029c57ab625f67"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/constants/DNSState.java",
+      "bytes": 5603,
+      "sha256": "52148c0f161bca88638b35650eecd05f968c785b5c7afaabd5b05c9673fe2cc7"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/constants/package-info.java",
+      "bytes": 600,
+      "sha256": "fd894ade87d9ea34090e042b237869ff998ce0dc7f18a4813b6a244719981443"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/package-info.java",
+      "bytes": 590,
+      "sha256": "8d5eb534d4782e2781a4856b0f76d8f818f0be9060f46bede02fd28f35361792"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/DNSTask.java",
+      "bytes": 5332,
+      "sha256": "7d2c3ae871fbe24ef2921b308e8346c20eef368cce962a69d012333a631d5a9b"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/RecordReaper.java",
+      "bytes": 1973,
+      "sha256": "29f6b0bf8cfaf3804eab62f8c241a6c8c270c6114e3a9d11e725b58be6a378c0"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/Responder.java",
+      "bytes": 6013,
+      "sha256": "c83cf5d0aac3f9f53d1aab1045cb21b047adde6bcf7f34fc0dea4688ae1217ed"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/package-info.java",
+      "bytes": 596,
+      "sha256": "5672828decd220f815da592659c7095ee0e5a5522b39803162f6f60edaf8d03d"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/resolver/DNSResolverTask.java",
+      "bytes": 3927,
+      "sha256": "c682d9827dde72bd108d2500a010a5513779c1f0153eb3a38ac6329382148174"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/resolver/ServiceInfoResolver.java",
+      "bytes": 5013,
+      "sha256": "08803f4dc728980f5492ca76419fc08a91ae0b783cde34148a4670d330f0895d"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/resolver/ServiceResolver.java",
+      "bytes": 2919,
+      "sha256": "4475415b77a3c4c5dd099ca408c9225eb4e4919e775e4f3898bf015a97ab6eb7"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/resolver/TypeResolver.java",
+      "bytes": 2877,
+      "sha256": "85b3912c607997b34d109777764d193e5bacb270bd008376b894e7854d566810"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/resolver/package-info.java",
+      "bytes": 605,
+      "sha256": "f7b474b2889340bd49fb33e00333aa177a497095c17e4ea1b601a4fd129d8495"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/state/Announcer.java",
+      "bytes": 4746,
+      "sha256": "059c53be97dcc3818137005cad40bd5b5d25666943982147e72e36948077b302"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/state/Canceler.java",
+      "bytes": 4360,
+      "sha256": "67ffe21c92155a69e2d2dfeb6598088ec56f6de028cf998fa69b7e172dbf2627"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/state/DNSStateTask.java",
+      "bytes": 6358,
+      "sha256": "13690f3d36cacb7196ca6e1e2de0916c4b318f507eb5c8e1b364dd40d0bb0642"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/state/Prober.java",
+      "bytes": 6153,
+      "sha256": "4389b1991a3c95485b4ef063d178bed30784e5f0391fc9c655c77e7f7a465072"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/state/Renewer.java",
+      "bytes": 4497,
+      "sha256": "0f86150854329860e898ccbdb7987b3b3983b89d0c5e27aeb7cc5c95ba0d10a8"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/tasks/state/package-info.java",
+      "bytes": 602,
+      "sha256": "8ef3741a7a6eff623d5dbfdecf44728640b23076dceea8ee599a3217b118fd33"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/util/ByteWrangler.java",
+      "bytes": 6742,
+      "sha256": "d78025cfc5943706f79bf0da4369cedeaf2bbc87964e84ed528d91b8f4ae5bca"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/util/NamedThreadFactory.java",
+      "bytes": 1521,
+      "sha256": "cede9263a5cc59e05a6f88033c674b84ec37dcfc29d6e6120ff60241e909335c"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/impl/util/SimpleLockManager.java",
+      "bytes": 3456,
+      "sha256": "d0fd6a89f85cad1f176a6a7d7347b0a84883e96d6da1e881c5d97ab1fd540da3"
+    },
+    {
+      "path": "legacy-mdns/src/main/java/javax/jmdns/package-info.java",
+      "bytes": 1139,
+      "sha256": "6f58d71fa554fbf22e96a9578b333f17ba9c557b5c5a185bc9a9f7e990bfb8e6"
+    },
+    {
+      "path": "legacy-mdns/src/main/resources/version.properties",
+      "bytes": 19,
+      "sha256": "81be205688f683e938f79b84012bad313b850a8feeffaa4ce879c788442522a2"
+    },
+    {
+      "path": "mobile/.gitignore",
+      "bytes": 6,
+      "sha256": "5c3174b74edc6f2b9e0743594b8bd3c7f31e4f4405758cc9872b3fe1de1d28b4"
+    },
+    {
+      "path": "mobile/build.gradle.kts",
+      "bytes": 4879,
+      "sha256": "85e235107a6b4e18a77f8f4d1305ac9ce071d39f4b5d7b39d1d9071bca3d06c6"
+    },
+    {
+      "path": "mobile/src/main/AndroidManifest.xml",
+      "bytes": 577,
+      "sha256": "97be98a31e213f5e3af40066583584108ab760060a550dd895d5ba44d0e5d683"
+    },
+    {
+      "path": "mobile/src/main/keepRules/rules.keep",
+      "bytes": 418,
+      "sha256": "cd9f36ade2d8604e1b7cf24eff5b171f9c0816c0aa013ba7eb55be4fe2e1dac7"
+    },
+    {
+      "path": "mobile/src/main/res/values/config.xml",
+      "bytes": 93,
+      "sha256": "87900e5fc8effcf60651e9e4dcb537aba134d44e37b2b6af91f5c8fcb135d72c"
+    },
+    {
+      "path": "mobile/src/main/res/values/strings.xml",
+      "bytes": 69,
+      "sha256": "c025515f6d77aab3fc3806f8c4e67c26334bae9e179fe19cb7f88ae74ad64874"
+    },
+    {
+      "path": "mobile/src/universal/res/values/edition.xml",
+      "bytes": 168,
+      "sha256": "bae2e5312a9fa98127ee60bbc429227fc47a784281fb951483e2780186ebcfac"
+    },
+    {
+      "path": "scripts/check_public_tree.py",
+      "bytes": 1030,
+      "sha256": "0573046db2763f791a5ece1ea442983c11548400d1653da1c06629e6ee7345cf"
+    },
+    {
+      "path": "settings.gradle.kts",
+      "bytes": 686,
+      "sha256": "7ee101d3affcedb3ca230ddbb8a15f2a9e26446e549d3539b351a72a5854455e"
+    },
+    {
+      "path": "shared/.gitignore",
+      "bytes": 7,
+      "sha256": "5b46eb48d96e8571e8c93e4ef4f6ffbe6807b6d7350664a36a064e1167a32718"
+    },
+    {
+      "path": "shared/build.gradle",
+      "bytes": 813,
+      "sha256": "24f6beead47fefa9cbc5d4839abb68d842a48ab4b264adc115008eac7425a6ef"
+    },
+    {
+      "path": "shared/src/main/AndroidManifest.xml",
+      "bytes": 1638,
+      "sha256": "dd16479acf6a4e07d08b7b95ebce97988ccbcecc09b211513f2f4d29cfe1c9eb"
+    },
+    {
+      "path": "shared/src/main/assets/navigation_test.pcm",
+      "bytes": 384452,
+      "sha256": "962a839dabdec7eeb2cc1f5fc91f19f2607e4b74b190110287c8b2f5a0f32d26"
+    },
+    {
+      "path": "shared/src/main/ic_launcher-playstore.png",
+      "bytes": 136865,
+      "sha256": "c01b282581d70ee95f80ef480e9cf47a0b0f2325d79020db6716060f1d958d53"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/AirPlayConfig.kt",
+      "bytes": 1780,
+      "sha256": "124ad00d0bb50f8adb9a662f2255df6d0a7d9a7ab70807fc4034aeb4e85b964d"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/AirPlayCrypto.kt",
+      "bytes": 5168,
+      "sha256": "fd055253a47874c48005d91c56d4cca7e108610b73d750006c0072f8beafc89d"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/AirPlayDisplaySettings.kt",
+      "bytes": 3219,
+      "sha256": "93c20e56fcc6fc54b5898944123d955132d2276bc61591e23fcbcb33b6b00744"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/AirPlayHid.kt",
+      "bytes": 5629,
+      "sha256": "4231f595bd1085a453c742d2bbaad4c4a4e2b58e860a6f6ae7710be37f344344"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/AirPlayIapTunnelStream.kt",
+      "bytes": 6054,
+      "sha256": "2fe77dd295f8acf0f31db35e928f593893eea8269fe7699be105f44b1e039d80"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/AirPlayIdentity.kt",
+      "bytes": 574,
+      "sha256": "b28c3d82753446efcbfee49eb848e86489ecf5209f8b1997f8969f82a73393c8"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/AirPlayInfoPlist.kt",
+      "bytes": 8725,
+      "sha256": "8703252d50292962ea9347af0f810e9f86afc41d26cf01dea781f10923625b1e"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/AirPlayPeerDiagnostics.kt",
+      "bytes": 668,
+      "sha256": "d3fb48139a8ed999d532ea8d104aacca0ada6775b0a1773d1fa801bd68ff30bd"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/AirPlaySession.kt",
+      "bytes": 32073,
+      "sha256": "3d5aabe848e64ecf89d5f77baf60b4254338562625a25e4a13e65b8c6aa24c09"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/AudioPacketCapture.kt",
+      "bytes": 4607,
+      "sha256": "a42af80ba9f74f12e7825adae810bd1281c81b00a0489d69bb64e7a8eb4b56ed"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/AudioStream.kt",
+      "bytes": 9256,
+      "sha256": "b0b4400943be2972519a023938bcf05d05db3d63192714143ef442f69bd6fe0b"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/BplistCodec.kt",
+      "bytes": 10720,
+      "sha256": "af2596af810be122c6966179d3891ed5831818a8408955fa09aa037ada748682"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/Bytes.kt",
+      "bytes": 718,
+      "sha256": "528d41d464e27d71ba3095017dbeb1fe421a5490f4f9f3532a3f3f7abc89b3f6"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/CarPlayDisplayScale.kt",
+      "bytes": 1045,
+      "sha256": "13d3f7b74d36cddb176a3b09f9453f6f214a22b94e5faf07546c8d1c10bbb49c"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/CarPlayMediaButton.kt",
+      "bytes": 820,
+      "sha256": "8a686ed6e353dee140e3ab2eb2fd73e44ff5b09a62346e846c7ec4c747e97380"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/CarPlayMediaEngine.kt",
+      "bytes": 19136,
+      "sha256": "a31ea5e0e1505ade0c915866b2d3c976929d23927aab14eb03edb5bbf62380cd"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/CarPlaySize.kt",
+      "bytes": 705,
+      "sha256": "4b04a9701c6d4e30820b15e5767e143538fe6ca90a75d33ff65eb01ae1a955ad"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/CarPlayUiScale.kt",
+      "bytes": 1792,
+      "sha256": "26e0aa050710429be964de10db1b598308e6704952520c5865ef4d9311eb0039"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/ControlCipher.kt",
+      "bytes": 2309,
+      "sha256": "7ff47dfbf6f5126ab3ce20671c64d36048c44cc2d1b1fd5701b5357cd6223329"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/IapTunnel.kt",
+      "bytes": 8193,
+      "sha256": "09dbd9aba7cb812a0cfd8e85bbd0114173b29ddca653dff015728ad98c70ae73"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/MfiSapAuthSetup.kt",
+      "bytes": 6808,
+      "sha256": "d9d472f478e780f8f110cef4bd87dd969867a67b5d08d8a3d5552648801e7e9d"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/MicrophonePacketizer.kt",
+      "bytes": 3718,
+      "sha256": "718028d117bf4fb5fbb40c5727750d7119a61185448b7b130db0acb7ce2f1966"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/NtpClock.kt",
+      "bytes": 8918,
+      "sha256": "9b3b1057dada04e182fdb1daf1e5975bd455d3c38454045c58d85f69d7b0e849"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/PairSetup.kt",
+      "bytes": 5419,
+      "sha256": "01810aa91b85753d7972eccb874eea6f405dbd1c23af9475fa1e13417e47bd58"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/PairVerify.kt",
+      "bytes": 5311,
+      "sha256": "23aba19de3e849df4b7f7f5dd17c9bfbc745c78fcf3795d395a0361ac17dbd45"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/PairingStore.kt",
+      "bytes": 562,
+      "sha256": "b28e3f9a20999770e37df145c5cc4279a40e1061e7b386727497a6af833905d1"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/RtspMessage.kt",
+      "bytes": 4300,
+      "sha256": "ff1b6cb148f22f792e03be4e0754f83d1391f850cd635067605703ab737fceaa"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/SafeArea.kt",
+      "bytes": 7062,
+      "sha256": "fd58cea61937342b237e528c4de5f537eadf23a5c5c5c34186bd39208ed6b320"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/ScreenStream.kt",
+      "bytes": 8250,
+      "sha256": "465042f057cbe98d4872c4f5ab3d123b4e9425e9552ed09358840940f1179b47"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/Srp6a.kt",
+      "bytes": 4746,
+      "sha256": "1386e5efac098afc16d1dd8af503a05bcfce3fdc8ad12255fc2f2ff8916c489e"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/StreamReceiveStats.kt",
+      "bytes": 1919,
+      "sha256": "86e37c847623edb27b76dc2ba3d164d72a628486a559f0e09480ea913561c1a8"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/airplay/Tlv8Codec.kt",
+      "bytes": 1922,
+      "sha256": "8f2afc6b59bffc8b9325f94933e38d9a77f341bcf3b42224d4f198e9303b1c65"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/iap2/body/Iap2BodyBuilder.kt",
+      "bytes": 6959,
+      "sha256": "1582474db22b718954050cf3e79cd10bf18647b831a6cfee79072efe8167755b"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/iap2/body/Iap2BodyReader.kt",
+      "bytes": 6235,
+      "sha256": "2d292fb9d36ae5ed4bcc846cde59b85f7d7bcfe3da35c9f958ab6f022f8da146"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/iap2/catalog/Iap2Endpoint.kt",
+      "bytes": 36121,
+      "sha256": "bc926b0d4e01d4a3d7b99d7900631a97538902f4aedc51f1295528edb5429420"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/iap2/message/Iap2Messages.kt",
+      "bytes": 11669,
+      "sha256": "ea60f4a555864fee5ce24fc60cf0599ffce49caef7dd08602a0589236e95458a"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/iap2/session/Iap2Session.kt",
+      "bytes": 4819,
+      "sha256": "39b383c718d82683e198cd1d6bed5acb56488b005124211809ea61d8b2e4c7a2"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/iap2/trace/Iap2FrameFormatter.kt",
+      "bytes": 8086,
+      "sha256": "f40be36ae5df9bc21c2cdb1136df1b14ef3f000d1d81570aa25ecb743e0c49bf"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/iap2/wire/Iap2CsmFramer.kt",
+      "bytes": 6803,
+      "sha256": "1409b90cda3637d266fefdfd6f566d52143cdfbd88d5b447cf63bb6241afb7e5"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/iap2/wire/Iap2Wire.kt",
+      "bytes": 5757,
+      "sha256": "f6fb6707e0ba0a21bed9cd08cfdc1557745cf66a5acff0c03358af9a98690af6"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/iap2/wire/Iap2WireCodec.kt",
+      "bytes": 5405,
+      "sha256": "860865941159f56bd11172682ee504f623f249a1b052ce8542ddf90a269703f5"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/location/AndroidCarPlayLocationProvider.kt",
+      "bytes": 5429,
+      "sha256": "cd283b942871583528d4a690d618ed448c5ebc9a2ee30b97c4b5d0ed2befbaee"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/AndroidMediaSink.kt",
+      "bytes": 50738,
+      "sha256": "70cfd8618904f75ed3d63aeb45e1fe199a47a61c6d5712bf133b08e064a01bdd"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/AudioBufferProgress.kt",
+      "bytes": 882,
+      "sha256": "e89e819274031e6252abb240ee3e72c230fc86b8bcaf61771403579b98869d6e"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/AudioChannelMapping.kt",
+      "bytes": 3646,
+      "sha256": "e999a475c5e23a10058408a47a86164d4163473b4c2db635f2768bc101ba70df"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/CarPlayPlaybackStatus.kt",
+      "bytes": 1293,
+      "sha256": "1354686a83d5ddef68acdc63e1b9602006a37189efc1fe6a2bc590950329662c"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/CarPlayTouchMapper.kt",
+      "bytes": 1231,
+      "sha256": "bd3521414c847d424c929763b4107701cf2b686cb875b6fb2924d93f98891cb1"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/LegacyAudioFallback.kt",
+      "bytes": 584,
+      "sha256": "546708acd9b6c1733d3bbdc2252ae8c56bda738e09247caaf23c78173abd4ac3"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/LegacyAvcDecoderSelection.kt",
+      "bytes": 406,
+      "sha256": "ca252b7c1f4f450bd58474eb5b386ec0b08a4459b5fa61b70057b3cc44abdbb4"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/MediaAudioBuffer.kt",
+      "bytes": 2183,
+      "sha256": "7d8c3e577899cd86cc4e9ba23d1ceb426fec6b6feb34abbba6bd0eb201f30208"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/MediaCodecSupport.kt",
+      "bytes": 8082,
+      "sha256": "94c99b9f7b264f01ff8894843824a52b085f6099f44b24e745c1664d6c660f7d"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/MicrophoneUplink.kt",
+      "bytes": 12847,
+      "sha256": "0f07e445bb55559419207ffd240f69eaa74b42d18e9432d45659cfc2c1f5154d"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/OpusEncoder.kt",
+      "bytes": 5393,
+      "sha256": "d814bd81cb7c64adca8ee1c7e661c53d3f8ca06b3b36964a205d3bad5430ce42"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/TouchLatencyProbe.kt",
+      "bytes": 699,
+      "sha256": "a4784406304791bfe80eafbc770a947a81d8c80868ba481fe52b5ae479988a66"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/VideoCatchUp.kt",
+      "bytes": 2054,
+      "sha256": "a3bae52287f4ecfbf5ebb4345553eb9a2ee97edcb30b78b326e7c4e5047405c7"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/VideoDecodeQueue.kt",
+      "bytes": 3612,
+      "sha256": "2901494075b7a6a24b57eba5e7fe608e95efd2864d24ff668a6fbeefa3f7fc67"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/VideoOutputDrain.kt",
+      "bytes": 1977,
+      "sha256": "0a80080b578eaaadc409c2e17b3212ec0c564e76dfb3f8221d03056e1e8a3f47"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/media/VideoStats.kt",
+      "bytes": 2837,
+      "sha256": "4c35a724dc623ab8f1ad22663c2c7c81135eaca3a7a082f3877c49ed11111f45"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/mfi/Iap2MfiAuthenticationClient.kt",
+      "bytes": 5639,
+      "sha256": "e0d73aa19f29f4935519bb448f89380d3b161c8e323ff0848874f821bf958a6a"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/mfi/LocalMfiAuthenticationClient.kt",
+      "bytes": 4882,
+      "sha256": "85da6d6c807f5eeb455707b7ddc17d26122700138a5f1a0120b758c8ebd2a9da"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/mfi/LocalMfiProbe.kt",
+      "bytes": 2080,
+      "sha256": "294c34d96d3e1e06c0fd800f4506a54b8714c4188440e66d14cfc9a9e8149bfc"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/mfi/MfiAuthenticationClient.kt",
+      "bytes": 11133,
+      "sha256": "d38cedb32804eec7798911be86e8fda753237a035fccba3db6cb0ee276e4fc1f"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/mfi/MfiDeviceScanner.kt",
+      "bytes": 6467,
+      "sha256": "f891d867748fe8c668b74d579de5d08552c3ffdf6dc71646ccd36a45aec6b530"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/mfi/MfiSelfCheck.kt",
+      "bytes": 1918,
+      "sha256": "5313befe6b787729f96c1e68c11fc9bfa77756484aaeede7637b4be2551e1c8f"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/mfi/RemoteMfiAuthenticationClient.kt",
+      "bytes": 15335,
+      "sha256": "b5a62a7039981946aff37ae157c8f1181be075a3c6290a52c36f204d79c49996"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/network/CarHotspotStatus.kt",
+      "bytes": 1377,
+      "sha256": "7c5ffb31720d9bdabc802aab4127e74b5f08ca9bf0b9a4c2c48c3922d76d9142"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/network/CarPlayBonjour.kt",
+      "bytes": 23523,
+      "sha256": "ea4caf24914b7ec392b208cb7f66d050c8cc7e010f479a2e0719e0bf969fb890"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/network/CarPlayVpnService.kt",
+      "bytes": 10272,
+      "sha256": "2ab3a3d236033a656d82bec153cac0ff3088dccacaf66f5897f9e6bc46b8ffd2"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/network/HotspotInterfaceBssid.kt",
+      "bytes": 3201,
+      "sha256": "dc5e4a46ecb16621b03884e223a5d059121d1f584a9bcfc1d0596ca825172178"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/network/Ipv6NcmBridge.kt",
+      "bytes": 7259,
+      "sha256": "31324516963611ebb80bf23e7d22a3d76db118f5f25e200f59cc3301c5f23aac"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/network/LegacyHotspotRadio.kt",
+      "bytes": 2335,
+      "sha256": "0c019d99e2851754e3c06b7f5ccb79353f5dacf564d43dd0ad22fafcfcbd4faf"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/network/LegacyHotspotRecovery.kt",
+      "bytes": 5148,
+      "sha256": "074925cf09cef4039f690d011cfe55f19a53e0cada489e07551df53035a5700b"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/network/ManualHotspotManager.kt",
+      "bytes": 20318,
+      "sha256": "bdfc1563179698e58777c484ec63128d3ccb9a4a30da5f738b47ca8708977c36"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/network/P2pOwnership.kt",
+      "bytes": 904,
+      "sha256": "216b2cceab974a8c21485e86724f6dc59d77070b7455d8ffe9bdc7033b98d7c6"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/network/TcpLiveness.kt",
+      "bytes": 1507,
+      "sha256": "b8a2b4a08de2cebaa5baf45f698835ca05a3810a7087b78ab5021b5247156405"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/network/WirelessHostAddress.kt",
+      "bytes": 711,
+      "sha256": "22c2766017dd00533be9bb572320bc678697640d3cd23491819e16013fa5e1e5"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/network/WirelessHotspotManager.kt",
+      "bytes": 3748,
+      "sha256": "a31752db995e83674b62d8d8be326c20e2bc62b8ba004e3fc6d1d37fe7eca2ee"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/orchestration/CarPlayController.kt",
+      "bytes": 87341,
+      "sha256": "52b51a5287ad6a08f4050abaef3b007344e535e6922fac05ea66d94a526ee843"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/orchestration/CarPlayRuntimeConfig.kt",
+      "bytes": 5967,
+      "sha256": "241fd9c8855bc2c529ca1af5c17fd1bc35df24e73685937be9f6913b6490f1cb"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/orchestration/ManualHotspotValidation.kt",
+      "bytes": 1286,
+      "sha256": "54bbb33249c6fb3ade89bf3b20374bf99a790cc3cb3f02baee575a95cf02e3cc"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/orchestration/MfiRuntime.kt",
+      "bytes": 1568,
+      "sha256": "4dc9fc672d1761d8d5768bc7a767a264cd3e9485940bcdc87b60d19f449ae614"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/orchestration/WirelessConnectionProof.kt",
+      "bytes": 1751,
+      "sha256": "f714c92349d049d651f43d56b3e382148440c5b823c7ddf4288396d72ee4682c"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/BlockingDuplexByteStream.kt",
+      "bytes": 533,
+      "sha256": "1425939b1e54c6963b90a563177f63416e9ee7505b80285714d3da06e3fe27ed"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/BluetoothRfcommDuplexStream.kt",
+      "bytes": 7541,
+      "sha256": "d98d350914abf514eedb27070cf16c20d770e692f09dc05d0bf20d9254483045"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Ch341DeviceMatcher.kt",
+      "bytes": 606,
+      "sha256": "be3df4c8c0de0699682529a3be359be7e8ce01509fb60e821b570227fd633ada"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Ch341I2cStreamEncoder.kt",
+      "bytes": 7552,
+      "sha256": "61ffa7e930f47241fe6fe2ca2689470b42c1892790584f0089b3c2fd61be9c4e"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Ch341I2cTransport.kt",
+      "bytes": 11081,
+      "sha256": "1114e79083ccff804eb0627e1d7503fe29ec8b9d1c2ab31beadcf180eacbd375"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Ch341UsbHost.kt",
+      "bytes": 14938,
+      "sha256": "03794682ec228289a057fd69bcc55fc4bcbb54aa565de7471b45ce1dd3bd5898"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/EthernetIpv6Codec.kt",
+      "bytes": 6766,
+      "sha256": "31591c2fc6665c0e37aab9fadad87aecf40d9e62cd44b81c1983ac82e72103c9"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/I2cTransport.kt",
+      "bytes": 1523,
+      "sha256": "c44424ddd9fe471ca816a0f6c314e4eced3ff59ab2aaf56274907cf1341f5562"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Iap2ControlDeadline.kt",
+      "bytes": 1022,
+      "sha256": "186bc35547bffc9d87f28611abbf80e8e0926ac35ceae35b2a21f66f077513a1"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Iap2CsmChannel.kt",
+      "bytes": 8919,
+      "sha256": "d5d4703ba845b1ebc425364c77ab29f864a445110582d8cb3ea506900fa7edbb"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Iap2IdentificationClient.kt",
+      "bytes": 13634,
+      "sha256": "fa70a8bb51e49d784aef801b47cbea2e48bae1754bba6961cb2b2f5031ea4864"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Iap2LinkChannel.kt",
+      "bytes": 14503,
+      "sha256": "d5038605d7c4fc848fab9557bc25b75a865cc22c8adbe737988641910a35fc48"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Iap2LinkEngine.kt",
+      "bytes": 28179,
+      "sha256": "aa098dff70dc3e5e8552ca2639f3e3383d0b205d867e85a90cfc672ba87de812"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Iap2LocationClient.kt",
+      "bytes": 5266,
+      "sha256": "ea85ad7279251e756275d2d5a79ce5326f5e86202380890d42b00e6d186df6ea"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Iap2UsbMuxHost.kt",
+      "bytes": 22425,
+      "sha256": "e7744e50e72efef6059e7b162a387b90b8759c8670182f58bd763a9504573d7c"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Iap2VehicleStatus.kt",
+      "bytes": 5652,
+      "sha256": "82263b21c15dfc9ca02da9e10c304ae5a53105aa25d89e58b3eed7bfb21c8192"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Iap2WiredControlClient.kt",
+      "bytes": 12342,
+      "sha256": "df21cca24376befad4f594188939b1245a51c8faad1355c7e65528cbd3244feb"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Iap2WirelessControlClient.kt",
+      "bytes": 18597,
+      "sha256": "407359a1cbc895b9ddf2335a0a5b52fbbc150a15742e9b74b6da6fcbe919bfa7"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/IphoneCarPlayConfiguration.kt",
+      "bytes": 5174,
+      "sha256": "0f92522a150181371a997e52d2e86027ab23143a67dcff50a989598565ca253e"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/IphoneUsbHost.kt",
+      "bytes": 18974,
+      "sha256": "dbd068b6560334c2576b232a74726c38a1d4b3e908ae28d2a15325a2c44faa88"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/LinuxI2cTransport.kt",
+      "bytes": 5232,
+      "sha256": "f786cbe1b8d5382d0267a9985fd11ae6e31ed6fbfbeb518a2e555fe0dea887af"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/LockdownCarKitClient.kt",
+      "bytes": 6131,
+      "sha256": "11bd291afd9359de06a2c0acdf54c1efaf9bfc06e1d2f94b4563c75889db2c91"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/LockdownPairRecord.kt",
+      "bytes": 19666,
+      "sha256": "0e65651cce137e08be33a56c5f59773685e1eaae68f340d879d2f144deea8dba"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/LockdownPairingClient.kt",
+      "bytes": 10964,
+      "sha256": "91b846de35788c72b4b3f82d82c5801cc67104cae80102aaf3762e4019a91412"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/LockdownPlistChannel.kt",
+      "bytes": 14828,
+      "sha256": "502c02c1be6b927b9c93055f1e0869f89f295735c62c7218d416b80bb927cc25"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/LockdownTlsEngineFactory.kt",
+      "bytes": 4648,
+      "sha256": "6ca998e11515325250a56966ac5a87b7fe8c27e56854f8248c110db545068468"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/NcmFunctionDiscovery.kt",
+      "bytes": 2727,
+      "sha256": "b1d1f4b559dde2c0709c800ebe7a7ea0bf7ff9ab06a4e3b31f2a81a30d43a0b3"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/NcmUsbBridge.kt",
+      "bytes": 19285,
+      "sha256": "86cb05cae42af703634e2c26ce86ddcf3d68dc659073c09b2aaa128098c92c77"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/Ntb16Codec.kt",
+      "bytes": 4827,
+      "sha256": "91932f559953e914e6103c43de0358598a757afb6d544c01aef23dcf1b4d4388"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/TlsDuplexChannel.kt",
+      "bytes": 18649,
+      "sha256": "2d8c0f34119a2799b4743bf8c244b4144b9bdc068aaea4aba9c9b5b35d5b55cb"
+    },
+    {
+      "path": "shared/src/main/java/com/shilapi/xcertplay/transport/UsbApiCompat.kt",
+      "bytes": 2000,
+      "sha256": "f2c85f8eaac2e3a22534e3a0026a8b5923d03c2343d743a1113d5f8298d54336"
+    },
+    {
+      "path": "shared/src/main/jni/Android.mk",
+      "bytes": 319,
+      "sha256": "655f7368a8238fe0fd7b910881f8868bdf44a92e96d167fa92a0202ccd16eb25"
+    },
+    {
+      "path": "shared/src/main/jni/Application.mk",
+      "bytes": 43,
+      "sha256": "5461327f5ef570aee8425ff78f85aecd6418594bf8092b170da001cbbe850ba7"
+    },
+    {
+      "path": "shared/src/main/jni/linux_i2c_jni.c",
+      "bytes": 4983,
+      "sha256": "475abc55149c4f87b6550cc3dd432fb2b2fff9e53fda0d8104a60dd80c1b999f"
+    },
+    {
+      "path": "shared/src/main/jni/local_hotspot_radio.c",
+      "bytes": 1445,
+      "sha256": "4985fade5d822b2a5f65f56805be3f4be9c8ae354e6c2e3bf14253955b6cee17"
+    },
+    {
+      "path": "shared/src/main/res/values/strings.xml",
+      "bytes": 337,
+      "sha256": "804db55ed3f0d567d016a2755f02cbc3305e333971f924449fa2dff82fd1eb9c"
+    },
+    {
+      "path": "shared/src/main/res/values-ar/strings.xml",
+      "bytes": 393,
+      "sha256": "33966f7524550758755971a834a6517041d85fc4f100877dcf23186a7bbce411"
+    },
+    {
+      "path": "shared/src/main/res/values-es/strings.xml",
+      "bytes": 377,
+      "sha256": "b480a808fb30f6f8a59cb510a4aad24bb4af0c7c9a38c8615c63fbae008fc9ab"
+    },
+    {
+      "path": "shared/src/main/res/values-ru/strings.xml",
+      "bytes": 469,
+      "sha256": "9601fd7e380b185da7ae4a28506ffd18eee2e1ceb866369988b45ee7e1e18a83"
+    },
+    {
+      "path": "shared/src/main/res/values-zh-rCN/strings.xml",
+      "bytes": 323,
+      "sha256": "c6d842a461de21c1de7d9017b7178b71918a979ae9910bc1f2c3b0ae4234369e"
+    },
+    {
+      "path": "shared/src/main/res/xml/automotive_app_desc.xml",
+      "bytes": 100,
+      "sha256": "7f4ec70cfbf1991741ce63c02059052dc83f31dffc572e3afa4edfb992ccbaa8"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/AirPlayDisplaySettingsTest.kt",
+      "bytes": 1615,
+      "sha256": "47f78cc8fd57a66973a1b495e081d2d395770573be79673d55338f54828d4212"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/AirPlayIapTunnelStreamTest.kt",
+      "bytes": 2126,
+      "sha256": "bc625fcd1aada8b72593a1a0f262ecf1dfdbdac457990502641751b36513ab1f"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/AirPlayInfoPlistTest.kt",
+      "bytes": 8831,
+      "sha256": "a5531caf08f1d0585d7b3a2d7f6c67bd8ef3bc2291bce5f634dbaa4d75d8f7d1"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/AirPlayPeerDiagnosticsTest.kt",
+      "bytes": 662,
+      "sha256": "75c8d710030b701020589d66262d49c183cca6636eca938942a8fed1e2ec4546"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/CarPlayDisplayScaleTest.kt",
+      "bytes": 966,
+      "sha256": "548dbcd886fa526772cef914a14e12904ee8dca5d98ca6f1d98ad16dcd608a06"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/CarPlayMediaButtonTest.kt",
+      "bytes": 1973,
+      "sha256": "c3e791ec7534187dfb9e874a41cb0dcffea3095f38f06dfc746207f3453f9465"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/CarPlayMediaEngineTest.kt",
+      "bytes": 2773,
+      "sha256": "3903b905de21be0ff7e9580c409a382e3cc842a5a7066ef7f13a58b94cd8d17f"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/CarPlaySizeTest.kt",
+      "bytes": 758,
+      "sha256": "aa1b70b1e84a8c73a0726bbc771f31b2c5b5b4abc7c70affa8f8b8c1e52e5bc2"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/CarPlayUiScaleTest.kt",
+      "bytes": 3050,
+      "sha256": "aecd0d3860453d5136ac0b8bcef097a2b8c8984b134d4b2205488868ee656cb0"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/LegacyIpv4ListenersTest.kt",
+      "bytes": 1739,
+      "sha256": "aafcb09887162f21d91817de89a8bd24e410c7e894f25d87cde010070530e1d2"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/MicrophoneLifecycleTest.kt",
+      "bytes": 6979,
+      "sha256": "1133de42302f5a890753285e60d70ae6f78d88dad60fbcabea8a6debf6efaeea"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/MicrophonePacketizerTest.kt",
+      "bytes": 1782,
+      "sha256": "b21fffcafd86a8a2a6c2920595a030e7a64482526f1e7607c445bf593b49bbe1"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/SafeAreaTest.kt",
+      "bytes": 4372,
+      "sha256": "c01abb1f3825b0821d9e35813acd0d47897e33327704d1d182ee23baeed5c5a5"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/ScreenCodecTest.kt",
+      "bytes": 1911,
+      "sha256": "ff47d5fb2cfab37b8fc2c20383b5e58e2be22abd419df1eb018912ed8eb9bfdc"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/airplay/StreamReceiveStatsTest.kt",
+      "bytes": 1551,
+      "sha256": "15c785ba11da1e515434a35d0482ec96a6b5aa9da45785a1b002122d2cdf7ab0"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/iap2/Iap2ProtocolTest.kt",
+      "bytes": 7046,
+      "sha256": "0065fde5df6ac7e862e54a9907f44c0c9a0d76f20b82205d63371b280776e4e5"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/media/AndroidMediaSinkStateTest.kt",
+      "bytes": 859,
+      "sha256": "ff2de99317be2b97e9458da0973899ad709f418079f3bae5ed0bcae183d4ec15"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/media/AudioBufferProgressTest.kt",
+      "bytes": 1419,
+      "sha256": "8144f85531d027b038483e50ce453d1a84ba8add242220938e0da719c1035a67"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/media/AudioChannelMappingTest.kt",
+      "bytes": 4987,
+      "sha256": "9376d4992b991c70779c1223011863477163a2b27c9d6121af4402a14e3e29c1"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/media/CarPlayPlaybackStatusTest.kt",
+      "bytes": 1227,
+      "sha256": "2ebf51bc9016dfc342236b9554f8f2a43367c0ab732af0abceba035e9e8d798a"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/media/LegacyAudioFallbackTest.kt",
+      "bytes": 2036,
+      "sha256": "30e30eff0056a8b2a23d34a0d49bfed9a0e0d22c64720a587abab8305226146d"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/media/LegacyAvcDecoderSelectionTest.kt",
+      "bytes": 741,
+      "sha256": "73cfb1534fd78c705fdb4419c2543afc95546eeb2af5e427daadb994f31bf4e9"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/media/LegacyMicrophoneTest.kt",
+      "bytes": 7428,
+      "sha256": "b0a77b65ccc20cc8c73afcdd83df517fe72e29b7d4808e0c3194fb49ea73cc08"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/media/LegacyVideoDecoderTest.kt",
+      "bytes": 9330,
+      "sha256": "188c2c2a06dd6f83d2a1cfe24e4358d3d4b447eb5aee3b4a8af0a484caa61982"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/media/MediaAudioBufferTest.kt",
+      "bytes": 1460,
+      "sha256": "6180273cf45f23190d43ed29719b9b04ec5799e404871a2f130698fe4bfbf3c3"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/media/MediaCodecSupportTest.kt",
+      "bytes": 3240,
+      "sha256": "8ff82cddd091461a29c2befd7fa8a192062ead4b4a2ecf81ff5e662e5188cdf4"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/media/VideoCatchUpTest.kt",
+      "bytes": 2313,
+      "sha256": "1b62c891fbb3b47f4865a279bbef70ca6e7efc6e1ebdb6ab74b4d1114243c1de"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/media/VideoDecodeQueueTest.kt",
+      "bytes": 5789,
+      "sha256": "6b4b451ecf3dc187df8446e8f9e9ffe1ad977252ee8730816ba0c2b02a85b099"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/media/VideoOutputDrainTest.kt",
+      "bytes": 3247,
+      "sha256": "11cefe07072221993e3e2f1cfdfed114d6ef1445db2ebcc4afc7b8106c1f3411"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/mfi/LocalMfiAuthenticationClientTest.kt",
+      "bytes": 5115,
+      "sha256": "1ccf0ce823899da45df4d7306a57eb6ba2183c97d8cafbee5944d6dff1efea3f"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/mfi/MfiAuthenticationClientTest.kt",
+      "bytes": 2890,
+      "sha256": "f32e8dc58718eafcb1eb31bc2bc41cdf2f4b13232fa1c33cf052b4a62a730ba3"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/mfi/MfiSelfCheckTest.kt",
+      "bytes": 3083,
+      "sha256": "d61856ad09cceb5c019e9ba7ca96ea0c43b57eb05b06e6735a018123918b678d"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/mfi/RemoteMfiAuthenticationClientTest.kt",
+      "bytes": 7456,
+      "sha256": "35af317cdf932f94af1924da58f77fddf5c19bef3ff2d9c9e5dff3135b41530d"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/network/CarPlayBonjourTest.kt",
+      "bytes": 2716,
+      "sha256": "6b733446a4782f398485644fcbbf358e9274a8efe65a38d80ac14374627a5473"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/network/HotspotInterfaceBssidTest.kt",
+      "bytes": 3125,
+      "sha256": "4046f2b096c7b3e65ab46df0db4f9907a71a9e36e35cfd69a66c97c70bd6f79e"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/network/LegacyHotspotRadioTest.kt",
+      "bytes": 1581,
+      "sha256": "3ad478cdb9a91d7ac046f900d2d3df92bc1ecf8c8f6dee3f854a7dc2c2e85d6c"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/network/LegacyHotspotRecoveryTest.kt",
+      "bytes": 7595,
+      "sha256": "fc0c391f26259be2aaa2c6345a89d337c30783fc7d84df07affe90f53187d2f3"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/network/LegacyMdnsPortReuseTest.java",
+      "bytes": 7696,
+      "sha256": "91055b9dc2db2f0a29dc06f758e5850c57a4108c0624f2d70cab015b120b79c3"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/network/P2pOwnershipTest.kt",
+      "bytes": 1302,
+      "sha256": "8d86843d3b0068f358d0ac43e7091ebee280ce6b59cd5fe903ca7194d5785935"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/network/WirelessHostAddressTest.kt",
+      "bytes": 1134,
+      "sha256": "a0b00593da11eda68a686663084931c7a3081d7cbe01045dd0cccabdcbbd3820"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/network/WirelessHotspotManagerTest.kt",
+      "bytes": 2779,
+      "sha256": "0d2222f2185f69fe58f655bcfd91671c03900113c0332de5aefe998f85291da8"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/orchestration/ManualHotspotConfigTest.kt",
+      "bytes": 809,
+      "sha256": "c66375999e3ff59e45e8dd5276649df285cfebeb059ba5043f1c666ee1f0bd7c"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/orchestration/ManualHotspotValidationTest.kt",
+      "bytes": 1002,
+      "sha256": "f8d631284bcee219fda08ba77edd523749fd1ee56b3848f9d841a610133059b1"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/orchestration/MfiTargetConfigTest.kt",
+      "bytes": 3235,
+      "sha256": "c9f87d921e00dd3e1a8fb00f48e2fef5871bc2f8089da9ff270270607af9e1d2"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/orchestration/WirelessConnectionProofTest.kt",
+      "bytes": 2600,
+      "sha256": "f189306806697fb8fff069787559bc74217217d922f0b44012e171d45a250a56"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/orchestration/WirelessHandoffTest.kt",
+      "bytes": 745,
+      "sha256": "6d32fa668a86df000e35d0d40873eb03ee12d8d9fede005323d2f8225b28dcdc"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/transport/Ch341DeviceMatcherTest.kt",
+      "bytes": 469,
+      "sha256": "72e62a9ed372ec9fe85ccd17cdf708202e1913267257236a17a4c7ab1a94fcfe"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/transport/Ch341I2cStreamEncoderTest.kt",
+      "bytes": 1854,
+      "sha256": "658b2728997672ad25671e04c91887bf7874f589fc39be9b8f363e841481c7e9"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/transport/EthernetIpv6CodecTest.kt",
+      "bytes": 2925,
+      "sha256": "67cf798c06fa40081a0721afb7c916551b72a900c6fc86ee70d62106a7b2e898"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/transport/Iap2ControlDeadlineTest.kt",
+      "bytes": 1108,
+      "sha256": "5ca78b5e7727246ff3b37291c55dee9aa1da175194224f1bc6ea4737ecc50ba2"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/transport/Iap2LocationClientTest.kt",
+      "bytes": 5106,
+      "sha256": "bd67d83ff196c3872b19ddc6f73fbc7dea6db0fcf760f8f8ec1f5fcfee4a4b21"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/transport/Iap2RouteGuidanceSubscriptionTest.kt",
+      "bytes": 1599,
+      "sha256": "d30c48ac8bd70eb64beb6f63013a26aed6c59194a214c8d7387f492d7abc56e8"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/transport/Iap2VehicleStatusTest.kt",
+      "bytes": 3134,
+      "sha256": "073b22813fa233bc68e5e03ec41c2ffa56873dcb28b4c08431c618c5c59af1b5"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/transport/Iap2WiredControlClientTest.kt",
+      "bytes": 1116,
+      "sha256": "81a7e25d0242b9a89be6d29c76ef68cbc959ed6aad4916b35eec6fc4649772dd"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/transport/Iap2WirelessControlClientTest.kt",
+      "bytes": 4841,
+      "sha256": "73023a74abe95e78164cf1f4266f535a142cc62427a92c3174d6edf76cdc08c8"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/transport/LinuxI2cTransportTest.kt",
+      "bytes": 2255,
+      "sha256": "124b91fe78566c99f4a11af0a205011e2b362c52dccb2bfb51f7e3e4eea58001"
+    },
+    {
+      "path": "shared/src/test/java/com/shilapi/xcertplay/transport/Ntb16CodecTest.kt",
+      "bytes": 991,
+      "sha256": "ef34aee80d98d25490e239b233735054d939017d7407ccdce3d3ef77a21685ff"
+    },
+    {
+      "path": "安装说明.md",
+      "bytes": 2027,
+      "sha256": "62bb666a02477a03fd1b63d5b4fb340d0802d5aa82a597be785ebc16774681d5"
+    }
+  ]
+}
