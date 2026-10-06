@@ -2,6 +2,10 @@
 
 An experimental wireless CarPlay receiver fork based on DiPlay-Legacy-Android v0.2.7, adapted for older Android head units. The universal build starts at Android 4.2 (API 17), scales display quality to the active screen, and requests H.264 at 30 fps.
 
+## Acknowledgements
+
+Special thanks to [programmerguohuajing](https://github.com/programmerguohuajing) for open-sourcing [DiPlay-Legacy-Android](https://github.com/programmerguohuajing/DiPlay-Legacy-Android). This project is an independent adaptation of its v0.2.7 release for older Android head units. Upstream attribution and license details are preserved in [Third-Party Notices](docs/THIRD_PARTY_NOTICES.md).
+
 **Release:** `0.2.7-universal.1` (version code 107). This repository contains the full source, GPLv3 license, third-party notices, setup/build instructions, GitHub issue form, and source-check workflow. The APK is published as a separate [GitHub Release asset](https://github.com/NineThree/HeadUnitWireless-CarPlay/releases/tag/0.2.7-universal.1); it is excluded from Git source history. The APK contains extractable experimental accessory-authentication material; see `docs/THIRD_PARTY_NOTICES.md`.
 
 ## Features and limits
