@@ -1,5 +1,7 @@
 # 通用版 0.2.7-universal.1
 
+特别感谢 [programmerguohuajing](https://github.com/programmerguohuajing) 开源 [DiPlay-Legacy-Android](https://github.com/programmerguohuajing/DiPlay-Legacy-Android)。本版本基于其 v0.2.7 项目独立修改并适配旧款 Android 车机。
+
 - 最低 Android 4.2（API17），版本号107。
 - 安装包：`HeadUnitWireless-CarPlay-0.2.7-universal.1.apk`
 - APK SHA-256：`9c7b484fefeaf7aa0d38643758fc0ce0029c2fbdba3705f72c328bb553db8ddd`
