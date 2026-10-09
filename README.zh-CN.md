@@ -42,4 +42,4 @@
 
 本版本315项自动测试与Release检查已在本地通过。热点恢复、实体按键送达、通话控制、长时间流畅度及其它车机兼容性仍待各自实车验证，见[验证记录](docs/VALIDATION.md)。
 
-[English README](README.md) · [构建说明](docs/BUILD.md) · [安装说明](docs/INSTALL.md) · [安全政策](SECURITY.md)
+[English README](README.en.md) · [构建说明](docs/BUILD.md) · [安装说明](docs/INSTALL.md) · [安全政策](SECURITY.md)
