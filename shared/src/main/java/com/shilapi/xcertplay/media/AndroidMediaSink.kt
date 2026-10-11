@@ -383,7 +383,12 @@ private class VideoDecoder(
                 throw error
             }
         }
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT && mime == MediaFormat.MIMETYPE_VIDEO_AVC) {
+        // API17 compat (4.2.2 head units): MediaCodecList is an API 18 class; touching it on
+        // older systems throws NoClassDefFoundError (an Error, not caught below). Skip the
+        // enumeration and fall through to createDecoderByType so the framework picks the OMX
+        // hardware decoder directly.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2 &&
+            Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT && mime == MediaFormat.MIMETYPE_VIDEO_AVC) {
             @Suppress("DEPRECATION")
             val names = (0 until MediaCodecList.getCodecCount()).map { MediaCodecList.getCodecInfoAt(it) }
                 .filter { !it.isEncoder && it.supportedTypes.any { type -> type.equals(mime, ignoreCase = true) } }

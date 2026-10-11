@@ -2563,6 +2563,12 @@ class CarPlayHostActivity : ComponentActivity() {
     private fun largerCanvasSupport(display: AirPlayDisplayConfig): CanvasSupport {
         return try {
         val mime = if (hevcEnabled) "video/hevc" else "video/avc"
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            // API17 compat: MediaCodecList (API 18) unavailable here; skip capability query
+            // and keep the default canvas instead of risking NoClassDefFoundError.
+            return CanvasSupport(false, "capability_query_skipped",
+                "Decoder capability check skipped below API 18; using default canvas")
+        }
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             @Suppress("DEPRECATION")
             val decoder = (0 until MediaCodecList.getCodecCount())
