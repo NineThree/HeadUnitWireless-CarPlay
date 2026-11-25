@@ -31,5 +31,6 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
     testImplementation(libs.junit)
-    testImplementation("org.robolectric:robolectric:4.17")
+    // Robolectric 4.15 retains the API 22 image needed for the HCN_01 launcher tests.
+    testImplementation("org.robolectric:robolectric:4.15.1")
 }
