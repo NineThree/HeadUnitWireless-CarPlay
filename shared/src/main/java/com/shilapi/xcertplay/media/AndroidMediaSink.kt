@@ -88,7 +88,7 @@ class AndroidMediaSink(
         videoDecoders[type]?.setSurface(surface)
     }
 
-    fun clearSurface(type: Int, surface: Surface) {
+    @Synchronized fun clearSurface(type: Int, surface: Surface) {
         if (surfaces.remove(type, surface)) videoDecoders[type]?.setSurface(null)
     }
 
@@ -218,7 +218,9 @@ private class VideoDecoder(
     private val requestKeyFrame: () -> Unit,
     private val report: (String) -> Unit,
 ) : Closeable {
-    private val queue = VideoDecodeQueue()
+    private val queue = VideoDecodeQueue(maxFrames = 24, maxBytes = 3 * 1024 * 1024)
+    private val failedDecoders = mutableSetOf<String>()
+    private var codecFailures = 0
     @Volatile private var running = true
     @Volatile private var decoder: MediaCodec? = null
     private var selectedDecoderName = "unknown"
@@ -252,13 +254,15 @@ private class VideoDecoder(
 
     override fun close() {
         running = false
+        queue.close()
         thread.interrupt()
     }
 
     private fun run() {
         try {
             while (running) {
-                val job = queue.poll(5)
+                val job = queue.poll(if (decoder == null) 100 else 5)
+                if (!running) break
                 try {
                     when (job) {
                         is VideoJob.Config -> configureDecoder(job)
@@ -276,6 +280,10 @@ private class VideoDecoder(
                     stats.logIfDue()?.let(report)
                     if (referenceChain.needsKeyFrame && lastConfig != null && outputSurface != null) requestKeyFrameIfDue()
                 } catch (error: Exception) {
+                    if (decoder != null && ++codecFailures >= 2) {
+                        failedDecoders.add(selectedDecoderName)
+                        codecFailures = 0
+                    }
                     if (running) Log.e(TAG, "video decoder job failed: ${job?.javaClass?.simpleName}", error)
                     if (running) report("decoder error codec=$selectedDecoderName stage=$decoderOperation " +
                         "${describeFailure(error)}; waiting for keyframe")
@@ -383,19 +391,21 @@ private class VideoDecoder(
                 throw error
             }
         }
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT && mime == MediaFormat.MIMETYPE_VIDEO_AVC) {
+        if (mime == MediaFormat.MIMETYPE_VIDEO_AVC) {
             @Suppress("DEPRECATION")
             val names = (0 until MediaCodecList.getCodecCount()).map { MediaCodecList.getCodecInfoAt(it) }
                 .filter { !it.isEncoder && it.supportedTypes.any { type -> type.equals(mime, ignoreCase = true) } }
                 .map { it.name }
             for (name in legacyAvcDecoderNames(names)) {
+                if (name in failedDecoders) continue
                 try {
                     return configured(name).also { selectedDecoderName = name }
                 } catch (error: Exception) {
+                    failedDecoders.add(name)
                     report("decoder startup failed codec=$name stage=$decoderOperation ${describeFailure(error)}")
                 }
             }
-            throw IllegalStateException("No usable legacy AVC decoder")
+            throw IllegalStateException("No usable AVC decoder for the stream")
         }
         return configured(null)
     }
@@ -422,6 +432,7 @@ private class VideoDecoder(
     private fun changeSurface(surface: Surface?) {
         if (outputSurface === surface) return
         outputSurface = surface
+        renderedFrameLogged = false
         if (surface == null) {
             releaseDecoder()
             Log.i(TAG, "video decoder detached from surface")
@@ -525,18 +536,18 @@ private class VideoDecoder(
             "coded=${format.intOrNull(MediaFormat.KEY_WIDTH)}x${format.intOrNull(MediaFormat.KEY_HEIGHT)} " +
             "crop=${format.intOrNull("crop-left")},${format.intOrNull("crop-top")}," +
             "${format.intOrNull("crop-right")},${format.intOrNull("crop-bottom")} " +
-            "stride=${format.intOrNull(MediaFormat.KEY_STRIDE)} slice=${format.intOrNull(MediaFormat.KEY_SLICE_HEIGHT)} " +
-            "color=${format.intOrNull(MediaFormat.KEY_COLOR_STANDARD)}/${format.intOrNull(MediaFormat.KEY_COLOR_RANGE)}/${format.intOrNull(MediaFormat.KEY_COLOR_TRANSFER)}")
+            "stride=${format.intOrNull("stride")} slice=${format.intOrNull("slice-height")} " +
+            "color=${format.intOrNull("color-standard")}/${format.intOrNull("color-range")}/${format.intOrNull("color-transfer")}")
         Log.i(
             TAG,
             "video decoder output format " +
                 "size=${format.intOrNull(MediaFormat.KEY_WIDTH)}x" +
                 "${format.intOrNull(MediaFormat.KEY_HEIGHT)} " +
-                "stride=${format.intOrNull(MediaFormat.KEY_STRIDE)} " +
-                "slice=${format.intOrNull(MediaFormat.KEY_SLICE_HEIGHT)} " +
-                "standard=${format.intOrNull(MediaFormat.KEY_COLOR_STANDARD)} " +
-                "range=${format.intOrNull(MediaFormat.KEY_COLOR_RANGE)} " +
-                "transfer=${format.intOrNull(MediaFormat.KEY_COLOR_TRANSFER)}",
+                "stride=${format.intOrNull("stride")} " +
+                "slice=${format.intOrNull("slice-height")} " +
+                "standard=${format.intOrNull("color-standard")} " +
+                "range=${format.intOrNull("color-range")} " +
+                "transfer=${format.intOrNull("color-transfer")}",
         )
     }
 
@@ -569,7 +580,7 @@ private class VideoDecoder(
 
     private companion object {
         const val TAG = "xcertplay-usb"
-        const val MAX_INPUT_SIZE = 8 * 1024 * 1024
+        const val MAX_INPUT_SIZE = 1024 * 1024
         const val INPUT_TIMEOUT_US = 10_000L
         val START_CODE = byteArrayOf(0x00, 0x00, 0x00, 0x01)
     }

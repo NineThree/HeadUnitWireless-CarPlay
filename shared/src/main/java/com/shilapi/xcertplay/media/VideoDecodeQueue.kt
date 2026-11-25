@@ -33,8 +33,10 @@ internal class VideoDecodeQueue(
     private var frameCount = 0
     private var frameBytes = 0L
     private var waiters = 0
+    private var closed = false
 
     fun offer(job: VideoJob) = synchronized(lock) {
+        if (closed) return@synchronized
         if (job is VideoJob.Frame) {
             if (frameCount >= maxFrames || frameBytes + job.nalus.size > maxBytes) {
                 discardFramesLocked()
@@ -51,6 +53,14 @@ internal class VideoDecodeQueue(
 
     fun discardFrames() = synchronized(lock) { discardFramesLocked() }
 
+    fun close() = synchronized(lock) {
+        closed = true
+        jobs.clear()
+        frameCount = 0
+        frameBytes = 0
+        if (waiters > 0) lock.notifyAll()
+    }
+
     private fun discardFramesLocked() {
         val iterator = jobs.iterator()
         while (iterator.hasNext()) {
@@ -65,6 +75,7 @@ internal class VideoDecodeQueue(
         val timeoutNs = if (jobs.isEmpty()) TimeUnit.MILLISECONDS.toNanos(timeoutMillis) else 0
         val start = if (jobs.isEmpty()) System.nanoTime() else 0
         while (jobs.isEmpty()) {
+            if (closed) return@synchronized null
             val remaining = timeoutNs - (System.nanoTime() - start)
             if (remaining <= 0) return@synchronized null
             waiters++
