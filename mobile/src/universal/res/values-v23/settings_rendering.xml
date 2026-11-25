@@ -1,0 +1,3 @@
+<resources>
+    <bool name="settings_hardware_accelerated">true</bool>
+</resources>
