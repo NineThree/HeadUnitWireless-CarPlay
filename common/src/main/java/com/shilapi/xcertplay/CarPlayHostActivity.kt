@@ -343,6 +343,9 @@ class CarPlayHostActivity : ComponentActivity() {
         applyDisplaySize(size)
     }
 
+    private var hostInitialized = false
+    private val touchMapper = CarPlayTouchMapper()
+
     private val textureListener = object : TextureView.SurfaceTextureListener {
         override fun onSurfaceTextureAvailable(texture: SurfaceTexture, width: Int, height: Int) {
             val existing = currentSurface
@@ -370,6 +373,8 @@ class CarPlayHostActivity : ComponentActivity() {
 
         override fun onSurfaceTextureDestroyed(texture: SurfaceTexture): Boolean {
             if (currentSurfaceTexture !== texture) return true
+            touchMapper.reset()
+            controller?.sendTouch(emptyList())
             currentSurface?.let { surface ->
                 sink?.clearSurface(SCREEN_TYPE_MAIN, surface)
                 sink?.clearSurface(SCREEN_TYPE_ALT, surface)
@@ -390,16 +395,36 @@ class CarPlayHostActivity : ComponentActivity() {
         if (intent.action == "android.hardware.usb.action.USB_DEVICE_ATTACHED") {
             AirPlayPersistence.saveWirelessEnabled(this, false)
         }
-        if (runCatching { DiPlayBootstrap.ensure(this) }.isFailure) {
-            startActivity(Intent(this, GolfWirelessActivity::class.java))
-            finish(); return
+        setContentView(TextView(this).apply {
+            text = getString(R.string.getting_carplay_ready)
+            gravity = Gravity.CENTER
+        })
+        val app = applicationContext
+        airPlayCommandExecutor.execute {
+            val result = runCatching {
+                DiPlayBootstrap.ensure(app)
+                AirPlayPersistence.loadIdentity(app)
+            }
+            mainHandler.post {
+                if (isFinishing || isDestroyed || shuttingDown.get()) return@post
+                val identity = result.getOrElse {
+                    startActivity(Intent(this, GolfWirelessActivity::class.java))
+                    finish()
+                    return@post
+                }
+                initializeHost(identity)
+            }
         }
+    }
+
+    private fun initializeHost(identity: AirPlayIdentity) {
+        hostInitialized = true
         window.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         initializeSessionLog()
         darkMode = isDarkMode(resources.configuration.uiMode)
         advancedAudioChannelMappingSupported =
             resources.getBoolean(R.bool.config_advanced_audio_channel_mapping)
-        airPlayIdentity = AirPlayPersistence.loadIdentity(this)
+        airPlayIdentity = identity
         loadPersistedSettings()
         locationPermissionAvailable = hasFineLocationPermission()
         setContentView(buildContentView())
@@ -572,6 +597,7 @@ class CarPlayHostActivity : ComponentActivity() {
 
     override fun onResume() {
         super.onResume()
+        if (!hostInitialized) return
         val languagePreference = AppLocale.preference(this)
         if (Build.VERSION.SDK_INT < 33 && languagePreference != languagePreferenceAtCreate) {
             languagePreferenceAtCreate = languagePreference
@@ -600,7 +626,7 @@ class CarPlayHostActivity : ComponentActivity() {
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
-        if (hasFocus) {
+        if (hasFocus && hostInitialized) {
             applyFullscreenMode()
             CarPlayMediaKeys.onHostResumed(controller)
         }
@@ -613,6 +639,7 @@ class CarPlayHostActivity : ComponentActivity() {
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
+        if (!hostInitialized) return
         val nextDarkMode = isDarkMode(newConfig.uiMode)
         if (nextDarkMode != darkMode) {
             darkMode = nextDarkMode
@@ -630,6 +657,7 @@ class CarPlayHostActivity : ComponentActivity() {
     override fun onDestroy() {
         mainHandler.removeCallbacks(applyDisplaySize)
         mainHandler.removeCallbacks(expireOldLogLines)
+        if (!hostInitialized) airPlayCommandExecutor.shutdownNow()
         currentSurface?.let { surface ->
             sink?.clearSurface(SCREEN_TYPE_MAIN, surface)
             sink?.clearSurface(SCREEN_TYPE_ALT, surface)
@@ -3128,7 +3156,7 @@ class CarPlayHostActivity : ComponentActivity() {
     }
 
     private fun maybeStartCarPlay() {
-        if (shuttingDown.get()) return
+        if (!hostInitialized || shuttingDown.get()) return
         if (CarPlayBackgroundSession.hasSession() && !CarPlayBackgroundSession.isOwner(this)) {
             if (!adoptBackgroundSession()) mainHandler.postDelayed({ maybeStartCarPlay() }, 500)
             return
@@ -3307,6 +3335,7 @@ class CarPlayHostActivity : ComponentActivity() {
                     gestureTracking = true
                     gestureStartX = pointerCentroid(event, horizontal = true)
                     gestureStartY = pointerCentroid(event, horizontal = false)
+                    touchMapper.reset()
                     controller?.sendTouch(emptyList())
                     appendLog("Three-finger swipe tracking started")
                     return true
@@ -3342,8 +3371,8 @@ class CarPlayHostActivity : ComponentActivity() {
             return true
         }
 
-        val contacts = CarPlayTouchMapper.contacts(event, view.width, view.height)
-        val queued = controller?.sendTouch(contacts) ?: false
+        val contacts = touchMapper.contacts(event, view.width, view.height)
+        val queued = controller?.sendTouch(contacts, coalesce = event.actionMasked == MotionEvent.ACTION_MOVE) ?: false
         when (event.actionMasked) {
             MotionEvent.ACTION_DOWN,
             MotionEvent.ACTION_POINTER_DOWN,

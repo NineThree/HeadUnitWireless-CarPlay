@@ -15,6 +15,7 @@ import android.os.Looper
 import android.os.SystemClock
 import android.provider.Settings
 import android.text.InputType
+import android.view.View
 import android.view.ViewGroup
 import android.view.KeyEvent
 import android.widget.Button
@@ -45,9 +46,15 @@ class GolfWirelessActivity : Activity() {
     private lateinit var status: TextView
     private lateinit var connectButton: Button
     private var setupError: String? = null
+    private var setupPending = true
+    private var resumed = false
+    private var choosingPhone = false
     private var connecting = false
+    private var connectionAttempt = 0
+    private var foregroundGeneration = 0
     private var keyTestDialog: AlertDialog? = null
     private var keyTestToken: Any? = null
+    private val connectionWorker = Executors.newSingleThreadExecutor()
     private val exportWorker = Executors.newSingleThreadExecutor()
     private val startupHandler = Handler(Looper.getMainLooper())
     private val autoGate = GolfAutoConnectionGate()
@@ -55,11 +62,11 @@ class GolfWirelessActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        window.setSoftInputMode(
+            android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE or
+                android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN,
+        )
         GolfWirelessProfile.apply(this)
-        setupError = runCatching { DiPlayBootstrap.ensure(this) }.exceptionOrNull()?.let {
-            "本地连接组件初始化失败（${it.javaClass.simpleName}），请导出故障报告。"
-        }
         val column = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(dp(24), dp(16), dp(24), dp(24))
@@ -109,8 +116,7 @@ class GolfWirelessActivity : Activity() {
         actions.addView(connectButton, weighted())
         actions.addView(button("断开连接") {
             cancelAutomaticConnection()
-            connecting = false
-            connectButton.isEnabled = true
+            cancelPendingConnect()
             CarPlayBackgroundSession.stop { runOnUiThread { setStatus("连接已停止。") } }
             setStatus("正在停止连接……")
         }, weighted())
@@ -127,15 +133,35 @@ class GolfWirelessActivity : Activity() {
             textSize = 15f
             setPadding(0, dp(12), 0, 0)
         })
-        setContentView(ScrollView(this).apply { addView(column) })
+        val viewport = ScrollView(this).apply {
+            overScrollMode = View.OVER_SCROLL_NEVER
+            isSmoothScrollingEnabled = false
+            isVerticalFadingEdgeEnabled = false
+            isFocusableInTouchMode = true
+            addView(column)
+        }
+        setContentView(viewport)
+        if (savedInstanceState == null) viewport.requestFocus()
         updatePhone()
         updateDisplaySummary()
         updateFeatureSummary()
-        setStatus(setupError ?: "等待连接。实际无线连接和画面效果需在本车机验证。")
+        setStatus("正在检查配件认证……")
+        val app = applicationContext
+        connectionWorker.execute {
+            val error = runCatching { DiPlayBootstrap.ensure(app) }.exceptionOrNull()
+            startupHandler.post {
+                if (isFinishing || isDestroyed) return@post
+                setupPending = false
+                setupError = error?.let { "本地连接组件初始化失败（${it.javaClass.simpleName}），请导出故障报告。" }
+                setStatus(setupError ?: "等待连接。实际无线连接和画面效果需在本车机验证。")
+                if (resumed) scheduleAutomaticConnection()
+            }
+        }
     }
 
     override fun onResume() {
         super.onResume()
+        resumed = true
         if (::phone.isInitialized) updatePhone()
         if (::displaySummary.isInitialized) updateDisplaySummary()
         if (::featureSummary.isInitialized) updateFeatureSummary()
@@ -143,6 +169,10 @@ class GolfWirelessActivity : Activity() {
     }
 
     override fun onPause() {
+        resumed = false
+        foregroundGeneration++
+        choosingPhone = false
+        if (connecting) cancelPendingConnect()
         closeHardwareKeys()
         startupHandler.removeCallbacks(autoTick)
         super.onPause()
@@ -340,7 +370,7 @@ class GolfWirelessActivity : Activity() {
 
     private fun scheduleAutomaticConnection() {
         if (!::status.isInitialized || !GolfFeatureSettings.load(this).autoConnect ||
-            setupError != null || connecting || CarPlayBackgroundSession.hasSession()) return
+            setupPending || setupError != null || connecting || CarPlayBackgroundSession.hasSession()) return
         autoGate.begin(SystemClock.elapsedRealtime())
         startupHandler.removeCallbacks(autoTick)
         startupHandler.postDelayed(autoTick, 1500)
@@ -363,13 +393,28 @@ class GolfWirelessActivity : Activity() {
             setStatus("自动连接需要先保存正确的热点信息，并选择已配对的 iPhone。")
             return
         }
-        val adapter = runCatching { BluetoothAdapter.getDefaultAdapter() }.getOrNull()
-        val bluetoothReady = runCatching {
-            adapter?.isEnabled == true && adapter.bondedDevices.any { it.address.equals(selected, true) }
-        }.getOrDefault(false)
-        val hotspotReady = when (CarHotspotStatus.state(this)) {
+        val allowHotspotRecovery = GolfFeatureSettings.load(this).hotspotRecovery
+        queryConnection({
+            readPairedPhones().phones.any { it.address.equals(selected, true) } &&
+                hotspotReady(allowHotspotRecovery)
+        }) { ready ->
+            if (connecting || CarPlayBackgroundSession.hasSession()) return@queryConnection
+            when (autoGate.evaluate(SystemClock.elapsedRealtime(), ready)) {
+                GolfAutoConnectionGate.Decision.CONNECT -> connect()
+                GolfAutoConnectionGate.Decision.WAIT -> {
+                    setStatus("自动连接：等待车机蓝牙和热点就绪……需要时可手动开始或断开。")
+                    startupHandler.postDelayed(autoTick, 2000)
+                }
+                GolfAutoConnectionGate.Decision.TIMEOUT -> setStatus("自动连接等待已结束。请开启车机热点和蓝牙，再手动开始连接。")
+                GolfAutoConnectionGate.Decision.STOP -> Unit
+            }
+        }
+    }
+
+    private fun hotspotReady(allowHotspotRecovery: Boolean): Boolean =
+        when (CarHotspotStatus.state(applicationContext)) {
             CarHotspotStatus.State.ENABLED, CarHotspotStatus.State.ENABLING -> true
-            CarHotspotStatus.State.FAILED -> GolfFeatureSettings.load(this).hotspotRecovery
+            CarHotspotStatus.State.FAILED -> allowHotspotRecovery
             CarHotspotStatus.State.DISABLED, CarHotspotStatus.State.DISABLING -> false
             CarHotspotStatus.State.UNKNOWN -> runCatching {
                 Collections.list(NetworkInterface.getNetworkInterfaces()).any {
@@ -378,16 +423,6 @@ class GolfWirelessActivity : Activity() {
                 }
             }.getOrDefault(false)
         }
-        when (autoGate.evaluate(SystemClock.elapsedRealtime(), bluetoothReady && hotspotReady)) {
-            GolfAutoConnectionGate.Decision.CONNECT -> connect()
-            GolfAutoConnectionGate.Decision.WAIT -> {
-                setStatus("自动连接：等待车机蓝牙和热点就绪……需要时可手动开始或断开。")
-                startupHandler.postDelayed(autoTick, 2000)
-            }
-            GolfAutoConnectionGate.Decision.TIMEOUT -> setStatus("自动连接等待已结束。请开启车机热点和蓝牙，再手动开始连接。")
-            GolfAutoConnectionGate.Decision.STOP -> Unit
-        }
-    }
 
     private fun saveHotspot(): Boolean {
         // SSIDs and passphrases are exact values: do not trim spaces entered by the owner.
@@ -409,60 +444,96 @@ class GolfWirelessActivity : Activity() {
         return true
     }
 
-    @android.annotation.SuppressLint("MissingPermission")
     private fun choosePhone() {
+        if (choosingPhone || connecting) return
+        choosingPhone = true
+        queryConnection(::readPairedPhones) { result ->
+            choosingPhone = false
+            if (!connecting) showPhones(result)
+        }
+    }
+
+    @android.annotation.SuppressLint("MissingPermission")
+    private fun readPairedPhones(): PairedPhones = runCatching {
         val adapter = BluetoothAdapter.getDefaultAdapter()
-        if (adapter == null) {
-            setStatus("系统没有向应用提供 Android 蓝牙接口。车机原有蓝牙通话功能不一定支持这条无线路线，请导出故障报告。")
+            ?: return PairedPhones("系统没有向应用提供 Android 蓝牙接口，请导出故障报告。")
+        if (!adapter.isEnabled) return PairedPhones("请开启车机蓝牙，并先与 iPhone 配对。", bluetoothOff = true)
+        val phones = adapter.bondedDevices.map { device ->
+            PairedPhone(device.address, device.name ?: "已配对设备")
+        }.sortedBy { it.name }
+        PairedPhones(phones = phones)
+    }.getOrElse { PairedPhones("无法读取已配对设备，请导出故障报告。") }
+
+    private fun showPhones(result: PairedPhones) {
+        if (result.error != null) {
+            setStatus(result.error)
+            if (result.bluetoothOff) openSystem(Intent(Settings.ACTION_BLUETOOTH_SETTINGS))
             return
         }
-        if (!adapter.isEnabled) {
-            setStatus("请开启车机蓝牙，并先与 iPhone 配对。")
-            openSystem(Intent(Settings.ACTION_BLUETOOTH_SETTINGS))
-            return
-        }
-        val devices = runCatching { adapter.bondedDevices.sortedBy { it.name ?: "" } }.getOrElse {
-            setStatus("无法读取已配对设备，请导出故障报告。")
-            return
-        }
-        if (devices.isEmpty()) {
+        if (result.phones.isEmpty()) {
             setStatus("应用未找到已配对设备。请在车机和 iPhone 的蓝牙设置里完成配对。")
             return
         }
         AlertDialog.Builder(this).setTitle("选择你的 iPhone")
-            .setItems(devices.map { "${it.name ?: "已配对设备"} · ${it.address.takeLast(5)}" }.toTypedArray()) { _, which ->
-                val device = devices[which]
-                DiPlayPreferences.savePhone(this, device.address, device.name ?: "iPhone")
+            .setItems(result.phones.map { "${it.name} · ${it.address.takeLast(5)}" }.toTypedArray()) { _, which ->
+                val device = result.phones[which]
+                DiPlayPreferences.savePhone(this, device.address, device.name)
                 updatePhone()
                 setStatus("已选择手机。点击“开始无线连接”。")
             }.setNegativeButton("取消", null).show()
     }
 
-    @android.annotation.SuppressLint("MissingPermission")
     private fun connect() {
-        if (connecting) return
+        if (connecting || setupPending) return
         setupError?.let { setStatus(it); return }
         if (!saveHotspot()) return
-        val adapter = BluetoothAdapter.getDefaultAdapter()
-        if (adapter == null || !adapter.isEnabled) { choosePhone(); return }
         val selected = DiPlayPreferences.phoneAddress(this)
-        if (selected == null || runCatching {
-            adapter.bondedDevices.none { it.address.equals(selected, ignoreCase = true) }
-        }.getOrDefault(true)) { choosePhone(); return }
-        GolfWirelessProfile.apply(this)
+        val attempt = ++connectionAttempt
         connecting = true
         connectButton.isEnabled = false
         setStatus("正在准备无线连接……")
-        CarPlayBackgroundSession.stop {
-            runOnUiThread {
-                if (!isFinishing && !isDestroyed && connecting) {
-                    connecting = false
-                    connectButton.isEnabled = true
-                    openProjection()
+        queryConnection(::readPairedPhones) { result ->
+            if (attempt != connectionAttempt) return@queryConnection
+            if (result.phones.none { it.address.equals(selected, ignoreCase = true) }) {
+                cancelPendingConnect()
+                showPhones(result)
+                return@queryConnection
+            }
+            GolfWirelessProfile.apply(this)
+            CarPlayBackgroundSession.stop {
+                runOnUiThread {
+                    if (!isFinishing && !isDestroyed && attempt == connectionAttempt) {
+                        cancelPendingConnect()
+                        openProjection()
+                    }
                 }
             }
         }
     }
+
+    private fun cancelPendingConnect() {
+        connectionAttempt++
+        connecting = false
+        connectButton.isEnabled = true
+    }
+
+    private fun <T> queryConnection(query: () -> T, complete: (T) -> Unit) {
+        val generation = foregroundGeneration
+        connectionWorker.execute {
+            val result = query()
+            startupHandler.post {
+                if (generation == foregroundGeneration && !isFinishing && !isDestroyed) complete(result)
+            }
+        }
+    }
+
+    private data class PairedPhone(val address: String, val name: String)
+    private data class PairedPhones(
+        val error: String? = null,
+        val bluetoothOff: Boolean = false,
+        val phones: List<PairedPhone> = emptyList(),
+    )
+
     private fun openProjection() {
         startActivity(Intent(this, CarPlayHostActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT))
     }
@@ -471,7 +542,7 @@ class GolfWirelessActivity : Activity() {
             .setMessage("这会断开连接并清除本应用的 CarPlay 配对记录。之后请在 iPhone“设置 → 通用 → CarPlay”中忽略原连接，再重新连接。热点设置和已选择的手机会保留。")
             .setPositiveButton("重置") { _, _ ->
                 cancelAutomaticConnection()
-                connecting = false
+                cancelPendingConnect()
                 connectButton.isEnabled = false
                 setStatus("正在停止连接并重置……")
                 CarPlayBackgroundSession.stop {
@@ -549,7 +620,7 @@ class GolfWirelessActivity : Activity() {
         append("BluetoothEnabled=${runCatching { adapter?.isEnabled }.getOrNull()}\n")
         append("BondedDeviceCount=${runCatching { adapter?.bondedDevices?.size }.getOrNull()}\n")
         append("PhoneSelected=${DiPlayPreferences.phoneAddress(this@GolfWirelessActivity) != null}\n")
-        append("AuthenticationReady=${setupError == null}\n")
+        append("AuthenticationReady=${!setupPending && setupError == null}\n")
         append("SessionActive=${CarPlayBackgroundSession.active}\n")
         append(DisplayDiagnosticSnapshot.report(applicationContext)).append('\n')
         for (name in SessionLogFile.REPORT_NAMES + listOf(GolfHardwareKeyLog.PREVIOUS_FILE_NAME, GolfHardwareKeyLog.FILE_NAME)) {
@@ -566,6 +637,7 @@ class GolfWirelessActivity : Activity() {
     override fun onDestroy() {
         closeHardwareKeys()
         startupHandler.removeCallbacksAndMessages(null)
+        connectionWorker.shutdownNow()
         exportWorker.shutdown()
         super.onDestroy()
     }
