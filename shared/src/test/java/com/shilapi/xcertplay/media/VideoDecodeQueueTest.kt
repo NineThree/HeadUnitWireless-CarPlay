@@ -35,6 +35,15 @@ class VideoDecodeQueueTest {
         waiting.join(1000)
         assertFalse(waiting.isAlive)
     }
+
+    @Test fun closeDropsQueuedSurfacesAndFramesAndRejectsLateProducers() {
+        val queue = VideoDecodeQueue()
+        queue.offer(VideoJob.SurfaceChanged(null))
+        queue.offer(VideoJob.Frame(ByteArray(4)))
+        queue.close()
+        queue.offer(VideoJob.Frame(ByteArray(4)))
+        assertNull(queue.poll(0))
+    }
     @Test fun producerConsumerAccountingIncludesOnlyFramesStillWaiting() {
         val q = VideoDecodeQueue(maxFrames = 2, maxBytes = 10)
         repeat(100) {
